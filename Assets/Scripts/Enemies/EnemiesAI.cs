@@ -28,7 +28,7 @@ public class EnemiesAI : MonoBehaviour
     private void Awake()
     {
 
-        player = GameObject.Find("Player").transform;
+        player = GameObject.Find("TANK").transform;
 
     }
 
@@ -96,7 +96,7 @@ public class EnemiesAI : MonoBehaviour
     {
 
         //Make sure enemies don't move
-        agent.SetDestination(transform.position);
+        //agent.SetDestination(transform.position);
 
         transform.LookAt(player);
 
