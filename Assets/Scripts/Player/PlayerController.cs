@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
         for (int i=playerHPUI.transform.childCount; i > playerHP; i--)
         {
             Debug.Log("playerHPUI" + playerHPUI.transform.childCount);
-            Destroy(playerHPUI.transform.GetChild(i-1).gameObject);
+            if (i-1 >= 0) Destroy(playerHPUI.transform.GetChild(i-1).gameObject);
         }
     }
     public void AddHP(int addedHP)
