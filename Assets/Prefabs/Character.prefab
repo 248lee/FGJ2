@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2405294264637110553}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 2304412601447769865}
   - component: {fileID: 5376507657455474033}
   - component: {fileID: 2304412601447769870}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Character
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a31893f1b2d7247b7ba5ff46f4a523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillsNoText:
+  skillIcons:
   - {fileID: 0}
   - {fileID: 0}
   skillDuration: 8
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 2304412601623424998}
   - component: {fileID: 2304412601623425000}
   - component: {fileID: 2304412601623424999}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -287,9 +287,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -5615849183326515265, guid: b00685f1b9a5367468ec0ca1b6c9e034, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b00685f1b9a5367468ec0ca1b6c9e034, type: 3}
       propertyPath: m_Name
       value: Tank
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b00685f1b9a5367468ec0ca1b6c9e034, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491055647490615296, guid: b00685f1b9a5367468ec0ca1b6c9e034, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b00685f1b9a5367468ec0ca1b6c9e034, type: 3}
