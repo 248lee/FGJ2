@@ -10,59 +10,45 @@ public class PlayerSkillManager : MonoBehaviour
 {
     public Image[] skillIcons = new Image[2];
     public float skillDuration = 8f;
-    public float skill2_AddHpPeriod = 0.7f;
-    public float skill3_DropHpPeriod = 0.7f;
-    private int[] skills = new int[2];
+    private int[] skillSlots = new int[2];
     private Coroutine[] skillCoroutines = new Coroutine[2];
-    private bool isSkill2Adding = false;
-    private bool isSkill3Dropping = false;
+    private Skill[] skillDataset = new Skill[5];
 
     // Start is called before the first frame update
     void Start()
     {
-        this.skills[0] = 0;
-        this.skills[1] = 0;
-        this.isSkill2Adding = false;
-        this.isSkill3Dropping = false;
+        this.skillSlots[0] = 0;
+        skillIcons[0].sprite = Resources.Load<Sprite>("Icons/0");
+        this.skillSlots[1] = 0;
+        skillIcons[1].sprite = Resources.Load<Sprite>("Icons/0");
+        this.skillSlots[1] = 0;
+        skillDataset[1] = GetComponent<Skill1>();
+        skillDataset[2] = GetComponent<Skill2>();
+        skillDataset[3] = GetComponent<Skill3>();
+        skillDataset[4] = GetComponent<Skill4>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isSkill2Adding)
-        {
-            if (Timers.IsTimerFinished("skill2AddHpCooldown"))
-            {
-                Timers.SetTimer("skill2AddHpCooldown", skill2_AddHpPeriod);
-                GetComponent<PlayerController>().AddHP(1);
-            }
-        }
-        if (isSkill3Dropping)
-        {
-            if (Timers.IsTimerFinished("skill3DropHpCooldown"))
-            {
-                Timers.SetTimer("skill3DropHpCooldown", skill2_AddHpPeriod);
-                GetComponent<PlayerController>().DropHP(1);
-            }
-        }
+        
         //print(Physics.GetIgnoreLayerCollision(7, 8));
-        if (this.skills[0] != -1 && Timers.IsTimerFinished("Skill0")) // If the skill0 is finished, clear the skill effect
+        if (this.skillSlots[0] > 0 && Timers.IsTimerFinished("Skill0")) // If the skill0 is finished, clear the skill effect
         {
-            ClearSkillEffect(skills[0]);
-            this.skills[0] = 0;
-            print(Resources.Load<Sprite>("Icons/0"));
+            ClearSkillEffect(skillSlots[0]);
+            this.skillSlots[0] = 0;
             skillIcons[0].sprite = Resources.Load<Sprite>("Icons/0");
         }
-        if (this.skills[1] != -1 && Timers.IsTimerFinished("Skill1")) // If the skill1 is finished, clear the skill effect
+        if (this.skillSlots[1] > 0 && Timers.IsTimerFinished("Skill1")) // If the skill1 is finished, clear the skill effect
         {
-            ClearSkillEffect(skills[1]);
-            this.skills[1] = 0;
+            ClearSkillEffect(skillSlots[1]);
+            this.skillSlots[1] = 0;
             skillIcons[1].sprite = Resources.Load<Sprite>("Icons/0");
         }
     }
     public void AddSkill() // Adding order: skill1 -> skill2 -> The skill which lasts for the least time.
     {
-        if (skills[0] == 0)
+        if (skillSlots[0] == 0)
         {
             if (this.skillCoroutines[0] != null)
             {
@@ -70,7 +56,7 @@ public class PlayerSkillManager : MonoBehaviour
             }
             this.skillCoroutines[0] = StartCoroutine(DrawSkill(0));
         }
-        else if (skills[1] == 0)
+        else if (skillSlots[1] == 0)
         {
             if (this.skillCoroutines[1] != null)
             {
@@ -78,7 +64,7 @@ public class PlayerSkillManager : MonoBehaviour
             }
             this.skillCoroutines[1] = StartCoroutine(DrawSkill(1));
         }
-        else if (skills[0] > 0 && skills[1] == -1)
+        else if (skillSlots[0] > 0 && skillSlots[1] == -1)
         {
             if (this.skillCoroutines[0] != null)
             {
@@ -86,7 +72,7 @@ public class PlayerSkillManager : MonoBehaviour
             }
             this.skillCoroutines[0] = StartCoroutine(DrawSkill(0));
         }
-        else if (skills[0] == -1 && skills[1] > 0)
+        else if (skillSlots[0] == -1 && skillSlots[1] > 0)
         {
             if (this.skillCoroutines[1] != null)
             {
@@ -94,7 +80,7 @@ public class PlayerSkillManager : MonoBehaviour
             }
             this.skillCoroutines[1] = StartCoroutine(DrawSkill(1));
         }
-        else if (skills[0] > 0 && skills[1] > 0)
+        else if (skillSlots[0] > 0 && skillSlots[1] > 0)
         {
             if (Timers.GetTimerPrgress("Skill0") > Timers.GetTimerPrgress("Skill1"))
             {
@@ -108,16 +94,17 @@ public class PlayerSkillManager : MonoBehaviour
     }
     private IEnumerator DrawSkill(int slotNo)
     {
-        ClearSkillEffect(skills[slotNo]);
-        this.skills[slotNo] = -1;
+        if (skillSlots[slotNo] > 0)
+            ClearSkillEffect(skillSlots[slotNo]);
+        this.skillSlots[slotNo] = -1;
         float waitSeconds = 0f;
         int lastTimeDraw = 0; // Avoid that the same icon runs two times
         for (int i = 0; i < 15; i++)
         {
-            int tempDrawingSkill = Random.Range(1, 4);
+            int tempDrawingSkill = Random.Range(1, skillDataset.Length);
             while (tempDrawingSkill == lastTimeDraw)
             {
-                tempDrawingSkill = Random.Range(1, 4);
+                tempDrawingSkill = Random.Range(1, skillDataset.Length);
             }
             lastTimeDraw = tempDrawingSkill;
             //Debug.Log("Drawing Skill: " + tempDrawingSkill);
@@ -125,13 +112,13 @@ public class PlayerSkillManager : MonoBehaviour
             waitSeconds += 0.05f;
             yield return new WaitForSeconds(waitSeconds);
         }
-        int resultSkill = Random.Range(1, 4);
+        int resultSkill = Random.Range(1, skillDataset.Length);
         while (true) // Check whether skill0 and skill1 has the same skill No. If same, redraw.
         {
             bool isSkillConflict = false;
             for (int i = 0; i < 2; i++)
             {
-                if (i != slotNo && skills[i] == resultSkill)
+                if (i != slotNo && skillSlots[i] == resultSkill)
                 {
                     isSkillConflict = true;
                     break;
@@ -139,7 +126,7 @@ public class PlayerSkillManager : MonoBehaviour
             }
             if (isSkillConflict)
             {
-                resultSkill = Random.Range(1, 4);
+                resultSkill = Random.Range(1, skillDataset.Length);
             }
             else
             {
@@ -149,46 +136,44 @@ public class PlayerSkillManager : MonoBehaviour
 
         //Debug.Log("Resulting Skill: " + resultSkill);
         skillIcons[slotNo].sprite = Resources.Load<Sprite>("Icons/" + resultSkill);
-        this.skills[slotNo] = resultSkill;
+        this.skillSlots[slotNo] = resultSkill;
         AddSkillEffect(resultSkill);
         Timers.SetTimer("Skill" + slotNo, skillDuration);
     }
 
     private void AddSkillEffect(int no)
     {
-        switch (no)
-        {
-            case 1: // add skill no. 1
-                Physics.IgnoreLayerCollision(7, 8, true);
-                break;
-            case 2: // add skill no. 2
-                this.isSkill2Adding = true;
-                Timers.SetTimer("skill2AddHpCooldown", skill2_AddHpPeriod);
-                break;
-            case 3:
-                this.isSkill3Dropping = true;
-                Timers.SetTimer("skill3DropdHpCooldown", skill2_AddHpPeriod);
-                break;
-            default:
-                break;
-        }
+        this.skillDataset[no].CastSkill();
+        //switch (no)
+        //{
+           
+        //    case 2: // add skill no. 2
+        //        
+        //        break;
+        //    case 3:
+        //        
+        //        break;
+        //    default:
+        //        break;
+        //}
     }
     private void ClearSkillEffect(int no)
     {
         /* Clear skill effects here :) */
-        switch (no)
-        {
-            case 1: // clear skill no. 1
-                Physics.IgnoreLayerCollision(7, 8, false);
-                break;
-            case 2: // clear skill no. 2
-                this.isSkill2Adding = false;
-                break;
-            case 3:
-                this.isSkill3Dropping = false;
-                break;
-            default:
-                break;
-        }
+        this.skillDataset[no].ClearSkill();
+        //switch (no)
+        //{
+        //    case 1: // clear skill no. 1
+        //        Physics.IgnoreLayerCollision(7, 8, false);
+        //        break;
+        //    case 2: // clear skill no. 2
+        //        
+        //        break;
+        //    case 3:
+        //        
+        //        break;
+        //    default:
+        //        break;
+        //}
     }
 }
