@@ -14,13 +14,18 @@ public class RandomSpawner : MonoBehaviour
     public static int enemiesNum = 0;
     public bool waveOver = true;
     public int numSet;
-    void Update()
-    {
+    public float spawnPerSecs = 5f;
 
+    private void Start()
+    {
         rangeX1 = player.transform.position.x - 50;
         rangeX2 = player.transform.position.x + 50;
         rangeZ1 = player.transform.position.z - 50;
         rangeZ2 = player.transform.position.z + 50;
+    }
+
+    void Update()
+    {
         if (waveOver)
         {
 
@@ -34,23 +39,10 @@ public class RandomSpawner : MonoBehaviour
 
             }
             waveOver = false;
-            Destroyed();
-
+            Timers.SetTimer("SpawnTimer", spawnPerSecs);
         }
 
-    }
-
-    void Destroyed()
-    {
-
-        if (enemiesNum == 0)
-        {
-
-            waveOver = true;
-            Debug.Log("Wave " + wave);
-
-        }
-
+        if (Timers.IsTimerFinished("SpawnTimer")) waveOver = true;
     }
 
 }
