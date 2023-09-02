@@ -38,11 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-<<<<<<< Updated upstream
   m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
-=======
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
->>>>>>> Stashed changes
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -134,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2304412601447769870, guid: a131b92566a91f44699b41da4702eb72, type: 3}
+      propertyPath: skillIcons.Array.data[0]
+      value: 
+      objectReference: {fileID: 1895361455}
     - target: {fileID: 2304412601447769870, guid: a131b92566a91f44699b41da4702eb72, type: 3}
       propertyPath: skillsNoText.Array.data[0]
       value: 
@@ -517,11 +517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubePrefab: {fileID: 6822301918986546573, guid: 6b03da8e98014cb4ca395ebc995bfe86, type: 3}
-  rangeX1: -50
-  rangeX2: 50
-  rangeY: 1
-  rangeZ1: -50
-  rangeZ2: 50
+  player: {fileID: 0}
   waveOver: 1
   numSet: 4
 --- !u!114 &1323331078
@@ -537,11 +533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubePrefab: {fileID: 2550637144319894959, guid: 9085c4c9ac504eb4da0ea8a7d6e846f5, type: 3}
-  rangeX1: -50
-  rangeX2: 50
-  rangeY: 1
-  rangeZ1: -50
-  rangeZ2: 50
+  player: {fileID: 0}
   waveOver: 1
   numSet: 4
 --- !u!114 &1323331079
@@ -698,5 +690,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1895361455 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4900255983036987467, guid: 54de78ba61344fc45aaf5e056efccd61, type: 3}
+  m_PrefabInstance: {fileID: 750647993}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
