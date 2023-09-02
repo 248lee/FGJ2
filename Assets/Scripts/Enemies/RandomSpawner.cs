@@ -16,7 +16,7 @@ public class RandomSpawner : MonoBehaviour
         if (waveOver)
         {
 
-            for (int i = 0; i < 5 * wave; i++)
+            for (int i = 0; i < wave; i++)
             {
 
                 Vector3 randomSpawnPosition = new Vector3(Random.Range(rangeX1, rangeX2), rangeY, Random.Range(rangeZ1, rangeZ2));
@@ -26,6 +26,7 @@ public class RandomSpawner : MonoBehaviour
 
             }
             waveOver = false;
+            Destroyed();
 
         }
 
