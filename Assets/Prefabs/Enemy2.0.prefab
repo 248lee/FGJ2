@@ -143,6 +143,9 @@ MonoBehaviour:
   bulletPoint: {fileID: 2682400539848657714}
   bulletSpeed: 5
   destroyTime: 1
+  playerHP: 6
+  HPIcon: {fileID: 0}
+  playerHPUI: {fileID: 0}
 --- !u!143 &2550637144316344065
 CharacterController:
   m_ObjectHideFlags: 0
@@ -173,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a31893f1b2d7247b7ba5ff46f4a523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillsNoText:
+  skillIcons:
   - {fileID: 0}
   - {fileID: 0}
   skillDuration: 8
@@ -452,7 +455,7 @@ GameObject:
   - component: {fileID: 1937115821147698242}
   m_Layer: 0
   m_Name: EnemyTank
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -156,32 +156,4 @@ public class EnemiesAI : MonoBehaviour
         //Gizmos.DrawWireSphere(transform.position, attackRange);
 
     }
-
-    void OnCollisionEnter(Collision other)
-    {
-        Debug.Log("Enter");
-        if (other.gameObject.CompareTag("bullets"))
-        {
-
-            Debug.Log("hit!");
-            Destroy(gameObject);
-
-        }
-
-    }
-
-    void OnCollisionStay(Collision other)
-    {
-
-        Debug.Log("Stay");
-        if (other.gameObject.CompareTag("bullets"))
-        {
-
-            Debug.Log("hits");
-            Destroy(gameObject);
-
-        }
-
-    }
-
 }

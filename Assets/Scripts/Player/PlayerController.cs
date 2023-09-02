@@ -12,11 +12,8 @@ public class PlayerController : MonoBehaviour
     public float playerSpeed = 2.0f;
     public GameObject barrel;
 
-    public int playerHP=6;
-    [SerializeField] GameObject HPIcon;
-    [SerializeField] GameObject playerHPUI;
     // for rotating view
-    public float mouseSensitivity = 100.0f;
+    public float mouseSensitivity = 200.0f;
     public float clampAngle = 0.0f;
     private float cameraRotY = 0.0f; // rotation around the up/y axis
     private float cameraRotX = 0.0f; // rotation around the right/x axis
@@ -27,14 +24,20 @@ public class PlayerController : MonoBehaviour
     public float bulletSpeed = 5f;
     public float destroyTime = 1f;
 
+    public int playerHP = 6;
+    [SerializeField] GameObject HPIcon;
+    [SerializeField] GameObject playerHPUI;
+
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
-        AddHP(0);
+        
         Vector3 rot = transform.localRotation.eulerAngles;
         cameraRotY = rot.y;
         cameraRotX = rot.x;
         Cursor.lockState = CursorLockMode.Locked;
+
+        AddHP(0);
     }
 
     void Update()
@@ -100,8 +103,6 @@ public class PlayerController : MonoBehaviour
         playerHP += addedHP;
         while (playerHPUI.transform.childCount < playerHP)
         {
-
-          
             Instantiate(HPIcon, playerHPUI.transform);
         }
     }
