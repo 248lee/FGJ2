@@ -19,7 +19,8 @@ public class SkillboxController : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, player.position) < triggerDistance) // if the player is closed enough to the skillbox
         {
-            // code here
+            player.GetComponent<PlayerSkillManager>().AddSkill();
+            Destroy(gameObject);
         }
     }
     private void OnDrawGizmos()
