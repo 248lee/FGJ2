@@ -11,15 +11,19 @@ public class PlayerSkillManager : MonoBehaviour
     public Image[] skillIcons = new Image[2];
     public float skillDuration = 8f;
     public float skill2_AddHpPeriod = 0.7f;
+    public float skill3_DropHpPeriod = 0.7f;
     private int[] skills = new int[2];
     private Coroutine[] skillCoroutines = new Coroutine[2];
     private bool isSkill2Adding = false;
+    private bool isSkill3Dropping = false;
 
     // Start is called before the first frame update
     void Start()
     {
         this.skills[0] = 0;
         this.skills[1] = 0;
+        this.isSkill2Adding = false;
+        this.isSkill3Dropping = false;
     }
 
     // Update is called once per frame
@@ -33,7 +37,14 @@ public class PlayerSkillManager : MonoBehaviour
                 GetComponent<PlayerController>().AddHP(1);
             }
         }
-
+        if (isSkill3Dropping)
+        {
+            if (Timers.IsTimerFinished("skill3DropHpCooldown"))
+            {
+                Timers.SetTimer("skill3DropHpCooldown", skill2_AddHpPeriod);
+                GetComponent<PlayerController>().DropHP(1);
+            }
+        }
         //print(Physics.GetIgnoreLayerCollision(7, 8));
         if (this.skills[0] != -1 && Timers.IsTimerFinished("Skill0")) // If the skill0 is finished, clear the skill effect
         {
@@ -86,10 +97,10 @@ public class PlayerSkillManager : MonoBehaviour
         int lastTimeDraw = 0; // Avoid that the same icon runs two times
         for (int i = 0; i < 15; i++)
         {
-            int tempDrawingSkill = Random.Range(1, 3);
+            int tempDrawingSkill = Random.Range(1, 4);
             while (tempDrawingSkill == lastTimeDraw)
             {
-                tempDrawingSkill = Random.Range(1, 3);
+                tempDrawingSkill = Random.Range(1, 4);
             }
             lastTimeDraw = tempDrawingSkill;
             //Debug.Log("Drawing Skill: " + tempDrawingSkill);
@@ -97,7 +108,7 @@ public class PlayerSkillManager : MonoBehaviour
             waitSeconds += 0.05f;
             yield return new WaitForSeconds(waitSeconds);
         }
-        int resultSkill = Random.Range(1, 3);
+        int resultSkill = Random.Range(1, 4);
         while (true) // Check whether skill0 and skill1 has the same skill No. If same, redraw.
         {
             bool isSkillConflict = false;
@@ -111,7 +122,7 @@ public class PlayerSkillManager : MonoBehaviour
             }
             if (isSkillConflict)
             {
-                resultSkill = Random.Range(1, 3);
+                resultSkill = Random.Range(1, 4);
             }
             else
             {
@@ -137,6 +148,10 @@ public class PlayerSkillManager : MonoBehaviour
                 this.isSkill2Adding = true;
                 Timers.SetTimer("skill2AddHpCooldown", skill2_AddHpPeriod);
                 break;
+            case 3:
+                this.isSkill3Dropping = true;
+                Timers.SetTimer("skill3DropdHpCooldown", skill2_AddHpPeriod);
+                break;
             default:
                 break;
         }
@@ -151,6 +166,9 @@ public class PlayerSkillManager : MonoBehaviour
                 break;
             case 2: // clear skill no. 2
                 this.isSkill2Adding = false;
+                break;
+            case 3:
+                this.isSkill3Dropping = false;
                 break;
             default:
                 break;
