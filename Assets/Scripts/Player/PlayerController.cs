@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        controller = gameObject.AddComponent<CharacterController>();
+        controller = gameObject.GetComponent<CharacterController>();
 
         Vector3 rot = transform.localRotation.eulerAngles;
         cameraRotY = rot.y;
