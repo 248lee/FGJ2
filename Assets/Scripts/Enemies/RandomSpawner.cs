@@ -7,7 +7,9 @@ public class RandomSpawner : MonoBehaviour
 {
 
     public GameObject cubePrefab;
-    public float rangeX1, rangeX2, rangeY, rangeZ1, rangeZ2;
+    public GameObject player;
+    private float rangeX1, rangeX2, rangeY, rangeZ1, rangeZ2;
+
     public static int wave = 1;
     public static int enemiesNum = 0;
     public bool waveOver = true;
@@ -15,6 +17,10 @@ public class RandomSpawner : MonoBehaviour
     void Update()
     {
 
+        rangeX1 = player.transform.position.x - 50;
+        rangeX2 = player.transform.position.x + 50;
+        rangeZ1 = player.transform.position.z - 50;
+        rangeZ2 = player.transform.position.z + 50;
         if (waveOver)
         {
 

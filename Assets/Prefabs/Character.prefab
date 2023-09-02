@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 2304412601447769870}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,13 +81,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 5
   barrel: {fileID: 4418717048588914543}
-  playerHP: 6
   mouseSensitivity: 100
   clampAngle: 0
-  bulletPrefab: {fileID: 1012840008253370880, guid: 1bab28bd70d7ba64399135c8a0720b3b, type: 3}
+  bulletPrefab: {fileID: 4054190571805246957, guid: ae1b5c8916b7e4141bb40d179914d3cd, type: 3}
   bulletPoint: {fileID: 1848315197268220730}
   bulletSpeed: 25
   destroyTime: 3
+  playerHP: 100
+  HPIcon: {fileID: 3890237563137013993, guid: 6a03fde22ee1da046b8d238c5c7d48c9, type: 3}
+  playerHPUI: {fileID: 0}
 --- !u!143 &2304412601447769865
 CharacterController:
   m_ObjectHideFlags: 0
@@ -130,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a31893f1b2d7247b7ba5ff46f4a523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillsNoText:
+  skillIcons:
   - {fileID: 0}
   - {fileID: 0}
   skillDuration: 8
@@ -288,6 +290,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b00685f1b9a5367468ec0ca1b6c9e034, type: 3}
       propertyPath: m_Name
       value: Tank
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b00685f1b9a5367468ec0ca1b6c9e034, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b00685f1b9a5367468ec0ca1b6c9e034, type: 3}

@@ -2,6 +2,7 @@ using System.Net.NetworkInformation;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class EnemiesAI : MonoBehaviour
 {
@@ -45,7 +46,7 @@ public class EnemiesAI : MonoBehaviour
         //Setting variables
         playerInSightRange = Vector3.Distance(transform.position, player.position) > sightRange;
         playerInChaseRange = Vector3.Distance(transform.position, player.position) < sightRange && Vector3.Distance(transform.position, player.position) > chaseRange;
-        playerInAttackRange = Vector3.Distance(transform.position, player.position) < chaseRange && Vector3.Distance(transform.position, player.position) > attackRange;
+        playerInAttackRange = Vector3.Distance(transform.position, player.position) < chaseRange;
 
         //Debug.Log("Sight = " + playerInSightRange);
         //Moving pattern decide
@@ -106,7 +107,6 @@ public class EnemiesAI : MonoBehaviour
 
         //Make sure enemies don't move
         //agent.SetDestination(transform.position);
-        Debug.Log("Attack");
         agent.ResetPath();
         transform.LookAt(player);
 
@@ -138,16 +138,22 @@ public class EnemiesAI : MonoBehaviour
         Destroy(bullet, destroyTime);
 
     }
+
+    public void IsDamaged()
+    {
+
+        Destroy(gameObject);
+
+    }
     private void OnDrawGizmos()
     {
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, sightRange);
-        Gizmos.color = Color.green;
+        Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(transform.position, chaseRange);
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
+        //Gizmos.color = Color.green;
+        //Gizmos.DrawWireSphere(transform.position, attackRange);
 
     }
-
 }
