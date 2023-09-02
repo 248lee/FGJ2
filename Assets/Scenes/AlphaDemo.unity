@@ -398,12 +398,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76b865a9d383e4010bddc82924771a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubePrefab: {fileID: 2324004726976975344, guid: 6b03da8e98014cb4ca395ebc995bfe86, type: 3}
-  rangeX1: -100
-  rangeX2: 100
+  cubePrefab: {fileID: 6822301918986546573, guid: 6b03da8e98014cb4ca395ebc995bfe86, type: 3}
+  rangeX1: -50
+  rangeX2: 50
   rangeY: 1
-  rangeZ1: -100
-  rangeZ2: 100
+  rangeZ1: -50
+  rangeZ2: 50
   waveOver: 1
   numSet: 4
 --- !u!114 &1323331078
@@ -419,11 +419,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubePrefab: {fileID: 2550637144319894959, guid: 9085c4c9ac504eb4da0ea8a7d6e846f5, type: 3}
-  rangeX1: -100
-  rangeX2: 100
+  rangeX1: -50
+  rangeX2: 50
   rangeY: 1
-  rangeZ1: -100
-  rangeZ2: 100
+  rangeZ1: -50
+  rangeZ2: 50
   waveOver: 1
   numSet: 4
 --- !u!114 &1323331079

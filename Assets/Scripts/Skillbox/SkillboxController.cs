@@ -7,7 +7,7 @@ using UnityEngine;
 public class SkillboxController : MonoBehaviour
 {
     public float triggerDistance = .5f;
-    public Transform player;
+    private GameObject player;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,8 +17,9 @@ public class SkillboxController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Vector3.Distance(transform.position, player.position));
-        if (Vector3.Distance(transform.position, player.position) < triggerDistance) // if the player is closed enough to the skillbox
+        player = GameObject.FindWithTag("Player");
+        Debug.Log(Vector3.Distance(transform.position, player.transform.position));
+        if (Vector3.Distance(transform.position, player.transform.position) < triggerDistance) // if the player is closed enough to the skillbox
         {
             player.GetComponent<PlayerSkillManager>().AddSkill();
             Destroy(gameObject);

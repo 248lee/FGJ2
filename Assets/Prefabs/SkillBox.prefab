@@ -378,7 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15502c46bace90049a4b83729cdc1bd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerDistance: 0.5
+  triggerDistance: 3
   player: {fileID: 2304412601473611176, guid: a131b92566a91f44699b41da4702eb72, type: 3}
 --- !u!114 &3777027065982303007
 MonoBehaviour:
