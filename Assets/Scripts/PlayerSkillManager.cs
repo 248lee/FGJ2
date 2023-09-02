@@ -23,11 +23,13 @@ public class PlayerSkillManager : MonoBehaviour
     {
         if (this.skills[0] != -1 && Timers.IsTimerFinished("Skill0")) // If the skill0 is finished, clear the skill effect
         {
+            ClearSkillEffect(skills[0]);
             this.skills[0] = 0;
             skillsNoText[0].SetText("0");
         }
         if (this.skills[1] != -1 && Timers.IsTimerFinished("Skill1")) // If the skill1 is finished, clear the skill effect
         {
+            ClearSkillEffect(skills[1]);
             this.skills[1] = 0;
             skillsNoText[1].SetText("0");
         }
@@ -76,6 +78,7 @@ public class PlayerSkillManager : MonoBehaviour
         //Debug.Log("Resulting Skill: " + resultSkill);
         skillsNoText[no].SetText(resultSkill.ToString());
         this.skills[no] = resultSkill;
+        AddSkillEffect(resultSkill);
         Timers.SetTimer("Skill" + no, 5f);
     }
     
