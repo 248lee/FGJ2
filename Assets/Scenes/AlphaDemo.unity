@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -196,7 +196,7 @@ PrefabInstance:
       objectReference: {fileID: 3890237563137013993, guid: 6a03fde22ee1da046b8d238c5c7d48c9, type: 3}
     - target: {fileID: 2304412601473611177, guid: a131b92566a91f44699b41da4702eb72, type: 3}
       propertyPath: playerHP
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2304412601473611177, guid: a131b92566a91f44699b41da4702eb72, type: 3}
       propertyPath: playerHPUI
@@ -702,10 +702,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1469254404 stripped
+--- !u!114 &1469254404
 MonoBehaviour:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 2304412601473611177, guid: a131b92566a91f44699b41da4702eb72, type: 3}
-  m_PrefabInstance: {fileID: 147721655}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -713,6 +714,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91087c8ee2b2e5459430bd952b0ab8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSpeed: 2
+  barrel: {fileID: 0}
+  playerHP: 6
+  HPIcon: {fileID: 0}
+  playerHPUI: {fileID: 0}
+  mouseSensitivity: 100
+  clampAngle: 0
+  bulletPrefab: {fileID: 0}
+  bulletPoint: {fileID: 0}
+  bulletSpeed: 5
+  destroyTime: 1
 --- !u!114 &1890323403 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3706603051730591780, guid: 68af60ede580ab04294286a3d21f9bf0, type: 3}
