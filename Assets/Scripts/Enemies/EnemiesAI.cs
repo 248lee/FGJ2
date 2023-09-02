@@ -35,7 +35,7 @@ public class EnemiesAI : MonoBehaviour
     private void Awake()
     {
 
-        player = GameObject.Find("TANK").transform;
+        player = GameObject.Find("Tank").transform;
 
     }
 
