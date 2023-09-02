@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &147721655
+--- !u!1001 &309090139
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -142,9 +142,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
+    - target: {fileID: 2304412601473611175, guid: a131b92566a91f44699b41da4702eb72, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 2304412601473611176, guid: a131b92566a91f44699b41da4702eb72, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2304412601473611176, guid: a131b92566a91f44699b41da4702eb72, type: 3}
       propertyPath: m_LocalPosition.x
@@ -205,7 +209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3706603050884442694, guid: 68af60ede580ab04294286a3d21f9bf0, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3706603050884442694, guid: 68af60ede580ab04294286a3d21f9bf0, type: 3}
       propertyPath: m_AnchorMax.x
@@ -384,7 +388,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1323331077
 MonoBehaviour:
