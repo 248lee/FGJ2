@@ -78,14 +78,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91087c8ee2b2e5459430bd952b0ab8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 2
+  playerSpeed: 5
   barrel: {fileID: 4418717048588914543}
   mouseSensitivity: 100
   clampAngle: 0
   bulletPrefab: {fileID: 1012840008253370880, guid: 1bab28bd70d7ba64399135c8a0720b3b, type: 3}
   bulletPoint: {fileID: 1848315197268220730}
-  bulletSpeed: 5
-  destroyTime: 1
+  bulletSpeed: 25
+  destroyTime: 3
 --- !u!143 &2304412601447769865
 CharacterController:
   m_ObjectHideFlags: 0
@@ -217,15 +217,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b00685f1b9a5367468ec0ca1b6c9e034, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.03
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b00685f1b9a5367468ec0ca1b6c9e034, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.03
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b00685f1b9a5367468ec0ca1b6c9e034, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.03
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b00685f1b9a5367468ec0ca1b6c9e034, type: 3}
       propertyPath: m_LocalPosition.x

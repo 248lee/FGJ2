@@ -205,7 +205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3706603050884442694, guid: 68af60ede580ab04294286a3d21f9bf0, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3706603050884442694, guid: 68af60ede580ab04294286a3d21f9bf0, type: 3}
       propertyPath: m_AnchorMax.x
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 1323331077}
   - component: {fileID: 1323331079}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -380,11 +380,11 @@ Transform:
   m_GameObject: {fileID: 1323331072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1323331077
 MonoBehaviour:
@@ -393,17 +393,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323331072}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76b865a9d383e4010bddc82924771a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cubePrefab: {fileID: 2324004726976975344, guid: 6b03da8e98014cb4ca395ebc995bfe86, type: 3}
-  rangeX1: -10
-  rangeX2: 10
+  rangeX1: -100
+  rangeX2: 100
   rangeY: 1
-  rangeZ1: -10
-  rangeZ2: 10
+  rangeZ1: -100
+  rangeZ2: 100
   waveOver: 1
   numSet: 4
 --- !u!114 &1323331078
@@ -413,17 +413,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323331072}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76b865a9d383e4010bddc82924771a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cubePrefab: {fileID: 2550637144319894959, guid: 9085c4c9ac504eb4da0ea8a7d6e846f5, type: 3}
-  rangeX1: -10
-  rangeX2: 10
+  rangeX1: -100
+  rangeX2: 100
   rangeY: 1
-  rangeZ1: -10
-  rangeZ2: 10
+  rangeZ1: -100
+  rangeZ2: 100
   waveOver: 1
   numSet: 4
 --- !u!114 &1323331079
