@@ -617,6 +617,7 @@ MonoBehaviour:
   skillsNoText:
   - {fileID: 0}
   - {fileID: 0}
+  skillDuration: 8
 --- !u!1 &2304412601623424997
 GameObject:
   m_ObjectHideFlags: 0
