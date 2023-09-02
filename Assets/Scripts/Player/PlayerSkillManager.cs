@@ -50,13 +50,14 @@ public class PlayerSkillManager : MonoBehaviour
         {
             ClearSkillEffect(skills[0]);
             this.skills[0] = 0;
-            skillIcons[0].sprite = null;
+            print(Resources.Load<Sprite>("Icons/0"));
+            skillIcons[0].sprite = Resources.Load<Sprite>("Icons/0");
         }
         if (this.skills[1] != -1 && Timers.IsTimerFinished("Skill1")) // If the skill1 is finished, clear the skill effect
         {
             ClearSkillEffect(skills[1]);
             this.skills[1] = 0;
-            skillIcons[1].sprite = null;
+            skillIcons[1].sprite = Resources.Load<Sprite>("Icons/0");
         }
     }
     public void AddSkill() // Adding order: skill1 -> skill2 -> The skill which lasts for the least time.
@@ -70,6 +71,22 @@ public class PlayerSkillManager : MonoBehaviour
             this.skillCoroutines[0] = StartCoroutine(DrawSkill(0));
         }
         else if (skills[1] == 0)
+        {
+            if (this.skillCoroutines[1] != null)
+            {
+                StopCoroutine(skillCoroutines[1]);
+            }
+            this.skillCoroutines[1] = StartCoroutine(DrawSkill(1));
+        }
+        else if (skills[0] > 0 && skills[1] == -1)
+        {
+            if (this.skillCoroutines[0] != null)
+            {
+                StopCoroutine(skillCoroutines[0]);
+            }
+            this.skillCoroutines[0] = StartCoroutine(DrawSkill(0));
+        }
+        else if (skills[0] == -1 && skills[1] > 0)
         {
             if (this.skillCoroutines[1] != null)
             {
