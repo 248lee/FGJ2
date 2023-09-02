@@ -9,6 +9,7 @@ using TMPro;
 public class PlayerSkillManager : MonoBehaviour
 {
     public TextMeshProUGUI[] skillsNoText = new TextMeshProUGUI[2];
+    public float skillDuration = 8f;
     private int[] skills = new int[2];
 
     // Start is called before the first frame update
@@ -63,10 +64,10 @@ public class PlayerSkillManager : MonoBehaviour
         int lastTimeDraw = 0; // Avoid that the same icon run two times
         for (int i = 0; i < 15; i++)
         {
-            int tempDrawingSkill = Random.Range(1, 10);
+            int tempDrawingSkill = Random.Range(1, 3);
             while (tempDrawingSkill == lastTimeDraw)
             {
-                tempDrawingSkill = Random.Range(1, 10);
+                tempDrawingSkill = Random.Range(1, 3);
             }
             lastTimeDraw = tempDrawingSkill;
             //Debug.Log("Drawing Skill: " + tempDrawingSkill);
@@ -74,20 +75,48 @@ public class PlayerSkillManager : MonoBehaviour
             waitSeconds += 0.05f;
             yield return new WaitForSeconds(waitSeconds);
         }
-        int resultSkill = Random.Range(1, 10);
+        int resultSkill = Random.Range(1, 3);
         //Debug.Log("Resulting Skill: " + resultSkill);
         skillsNoText[no].SetText(resultSkill.ToString());
         this.skills[no] = resultSkill;
         AddSkillEffect(resultSkill);
-        Timers.SetTimer("Skill" + no, 5f);
+        Timers.SetTimer("Skill" + no, skillDuration);
     }
     
     private void AddSkillEffect(int no)
     {
-        /* Add skill effects here :) */
+        for (int i = 1; i < 3; i++)
+        {
+            if (i != no)
+            {
+                ClearSkillEffect(i);
+            }
+        }
+        switch (no)
+        {
+            case 1: // add skill no. 0
+                Physics.IgnoreLayerCollision(7, 8, true);
+                break;
+            case 2:
+                GetComponent<CharacterController>().enabled = false;
+                break;
+            default:
+                break;
+        }
     }
     private void ClearSkillEffect(int no)
     {
         /* Clear skill effects here :) */
+        switch (no)
+        {
+            case 1: // clear skill no. 0
+                Physics.IgnoreLayerCollision(7, 8, false);
+                break;
+            case 2:
+                GetComponent<CharacterController>().enabled = true;
+                break;
+            default:
+                break;
+        }
     }
 }
