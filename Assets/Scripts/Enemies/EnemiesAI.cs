@@ -8,7 +8,6 @@ public class EnemiesAI : MonoBehaviour
 
     public UnityEngine.AI.NavMeshAgent agent;
 
-
     public Transform player;
 
     public LayerMask whatIsGround, whatIsPlayer;
@@ -118,6 +117,14 @@ public class EnemiesAI : MonoBehaviour
     {
 
         alreadyAttacked = false;
+
+    }
+
+    private void BeenAttack()
+    {
+
+        //Be attacked
+        RandomSpawner.enemiesNum--;
 
     }
 
