@@ -122,9 +122,11 @@ MonoBehaviour:
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 5
   timeBetweenAttacks: 1
-  sightRange: 3
-  attackRange: 1.8
+  sightRange: 4.8
+  chaseRange: 2.5
+  attackRange: 1.4
   playerInSightRange: 0
+  playerInChaseRange: 0
   playerInAttackRange: 0
 --- !u!195 &6197904371985321769
 NavMeshAgent:

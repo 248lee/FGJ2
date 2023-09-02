@@ -12,7 +12,7 @@ public class EnemiesAI : MonoBehaviour
 
     public LayerMask whatIsGround, whatIsPlayer;
 
-    //Patroling
+    //Patrolling
     public Vector3 walkPoint;
     bool walkPointSet;
     public float walkPointRange;
@@ -22,8 +22,15 @@ public class EnemiesAI : MonoBehaviour
     bool alreadyAttacked;
 
     //states
-    public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange;
+    public float sightRange, chaseRange, attackRange;
+    public bool playerInSightRange, playerInChaseRange, playerInAttackRange;
+
+    // for fire
+    public GameObject bulletPrefab;
+    public GameObject bulletPoint;
+    public float bulletSpeed = 5f;
+    public float destroyTime = 1f;
+
 
     private void Awake()
     {
@@ -36,19 +43,21 @@ public class EnemiesAI : MonoBehaviour
     {
 
         //Setting variables
-        playerInSightRange = Vector3.Distance(transform.position, player.position) < sightRange;
-        playerInSightRange = Vector3.Distance(transform.position, player.position) < attackRange;
+        playerInSightRange = Vector3.Distance(transform.position, player.position) > sightRange;
+        playerInChaseRange = Vector3.Distance(transform.position, player.position) < sightRange && Vector3.Distance(transform.position, player.position) > chaseRange;
+        playerInAttackRange = Vector3.Distance(transform.position, player.position) < chaseRange && Vector3.Distance(transform.position, player.position) > attackRange;
 
+        //Debug.Log("Sight = " + playerInSightRange);
         //Moving pattern decide
-        if (!playerInSightRange && !playerInAttackRange) Patrolling();
-        if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        if (playerInAttackRange && playerInSightRange) AttackPlayer();
+        if (playerInSightRange) Patrolling();
+        if (playerInChaseRange) ChasePlayer();
+        if (playerInAttackRange) AttackPlayer();
 
     }
 
     private void Patrolling()
     {
-        Debug.Log("Patrolling");
+
         if (!walkPointSet) SearchWalkPoint();
         if (walkPointSet)
         {
@@ -97,14 +106,15 @@ public class EnemiesAI : MonoBehaviour
 
         //Make sure enemies don't move
         //agent.SetDestination(transform.position);
-
+        Debug.Log("Attack");
+        agent.ResetPath();
         transform.LookAt(player);
 
         if (!alreadyAttacked)
         {
 
             //Attack Mode here
-
+            Fire();
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
 
@@ -119,17 +129,13 @@ public class EnemiesAI : MonoBehaviour
 
     }
 
-
-    void OnCollisionEnter(Collision collision)
+    private void Fire()
     {
 
-        if (collision.gameObject.CompareTag("Player"))
-        {
-
-            Debug.Log("Hit");
-            //RandomSpawner.enemiesNum--;
-
-        }
+        GameObject bullet = Instantiate(bulletPrefab, bulletPoint.transform.position, bulletPoint.transform.rotation);
+        //bullet.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * bulletSpeed;
+        bullet.GetComponent<Rigidbody>().velocity = (player.transform.position - bulletPoint.transform.position) * bulletSpeed;
+        Destroy(bullet, destroyTime);
 
     }
     private void OnDrawGizmos()
@@ -137,6 +143,8 @@ public class EnemiesAI : MonoBehaviour
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, sightRange);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, chaseRange);
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, attackRange);
 
