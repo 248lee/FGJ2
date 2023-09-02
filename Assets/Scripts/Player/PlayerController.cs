@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
     public float playerSpeed = 2.0f;
     public GameObject barrel;
 
+    public int playerHP=6;
+    [SerializeField] GameObject HPIcon;
+    [SerializeField] GameObject playerHPUI;
     // for rotating view
     public float mouseSensitivity = 100.0f;
     public float clampAngle = 0.0f;
@@ -27,7 +30,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
-
+        AddHP(0);
         Vector3 rot = transform.localRotation.eulerAngles;
         cameraRotY = rot.y;
         cameraRotX = rot.x;
@@ -58,7 +61,7 @@ public class PlayerController : MonoBehaviour
 
         controller.Move(distance);
     }
-
+   
     private void LookAt()
     {
         cameraRotY += Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
@@ -81,5 +84,25 @@ public class PlayerController : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, bulletPoint.transform.position, bulletPoint.transform.rotation);
         bullet.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * bulletSpeed;
         Destroy(bullet, destroyTime);
+    }
+    //HP
+    public void DropHP(int droppedHP)
+    {
+        playerHP -= droppedHP;
+        for (int i=playerHPUI.transform.childCount; i > playerHP; i--)
+        {
+            Debug.Log("playerHPUI" + playerHPUI.transform.childCount);
+            Destroy(playerHPUI.transform.GetChild(i-1).gameObject);
+        }
+    }
+    public void AddHP(int addedHP)
+    {
+        playerHP += addedHP;
+        while (playerHPUI.transform.childCount < playerHP)
+        {
+
+          
+            Instantiate(HPIcon, playerHPUI.transform);
+        }
     }
 }
