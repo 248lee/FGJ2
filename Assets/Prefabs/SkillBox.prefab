@@ -94,7 +94,6 @@ GameObject:
   - component: {fileID: 2324004726108631849}
   - component: {fileID: 2324004726108631852}
   - component: {fileID: 2324004726108631851}
-  - component: {fileID: 2324004726108631850}
   m_Layer: 0
   m_Name: Quad
   m_TagString: Untagged
@@ -109,14 +108,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2324004726108631848}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.99889815, z: 0, w: 0.046932265}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2324004726976975345}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -174.62, z: 0}
 --- !u!33 &2324004726108631852
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -167,20 +166,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2324004726108631850
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2324004726108631848}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2324004726661673660
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,6 +259,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2324004726976975345}
   - component: {fileID: 2324004726976975346}
+  - component: {fileID: 162961884488116841}
+  - component: {fileID: 47210948}
   m_Layer: 0
   m_Name: SkillBox
   m_TagString: Untagged
@@ -314,6 +301,32 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &162961884488116841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2324004726976975344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15502c46bace90049a4b83729cdc1bd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerDistance: 0.5
+  player: {fileID: 0}
+--- !u!114 &47210948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2324004726976975344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e14a900bace9994f8a20c6ad63aa865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2324004727127919360
 GameObject:
   m_ObjectHideFlags: 0
