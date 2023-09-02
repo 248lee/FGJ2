@@ -22,5 +22,12 @@ public class SkillboxController : MonoBehaviour
             // code here
         }
     }
-    
+    private void OnDrawGizmos()
+    {
+        // Set the gizmo color
+        Gizmos.color = Color.blue;
+
+        // Draw a wireframe sphere gizmo around the GameObject's position
+        Gizmos.DrawWireSphere(transform.position, triggerDistance);
+    }
 }
