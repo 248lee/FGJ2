@@ -123,17 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &132702401 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2304412601473611177, guid: a131b92566a91f44699b41da4702eb72, type: 3}
-  m_PrefabInstance: {fileID: 2145980179}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e91087c8ee2b2e5459430bd952b0ab8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &201703988
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -346,7 +335,7 @@ PrefabInstance:
     - target: {fileID: 4900255983794962938, guid: 54de78ba61344fc45aaf5e056efccd61, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 132702401}
+      objectReference: {fileID: 1115640927}
     - target: {fileID: 4900255983794962943, guid: 54de78ba61344fc45aaf5e056efccd61, type: 3}
       propertyPath: m_LocalPosition.y
       value: -342
@@ -846,6 +835,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b03da8e98014cb4ca395ebc995bfe86, type: 3}
+--- !u!114 &1115640927 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3626757106241104068, guid: a131b92566a91f44699b41da4702eb72, type: 3}
+  m_PrefabInstance: {fileID: 2145980179}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e91087c8ee2b2e5459430bd952b0ab8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1563012825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1530,11 +1530,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2304412601473611177, guid: a131b92566a91f44699b41da4702eb72, type: 3}
       propertyPath: playerHP
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2304412601473611177, guid: a131b92566a91f44699b41da4702eb72, type: 3}
       propertyPath: playerHPUI
       value: 
       objectReference: {fileID: 2089828335}
+    - target: {fileID: 3626757106241104065, guid: a131b92566a91f44699b41da4702eb72, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626757106241104065, guid: a131b92566a91f44699b41da4702eb72, type: 3}
+      propertyPath: skillIcons.Array.data[0]
+      value: 
+      objectReference: {fileID: 2098812097}
+    - target: {fileID: 3626757106241104065, guid: a131b92566a91f44699b41da4702eb72, type: 3}
+      propertyPath: skillIcons.Array.data[1]
+      value: 
+      objectReference: {fileID: 736724649}
+    - target: {fileID: 3626757106241104068, guid: a131b92566a91f44699b41da4702eb72, type: 3}
+      propertyPath: playerHP
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626757106241104068, guid: a131b92566a91f44699b41da4702eb72, type: 3}
+      propertyPath: playerHPUI
+      value: 
+      objectReference: {fileID: 2089828335}
+    - target: {fileID: 3626757106241104069, guid: a131b92566a91f44699b41da4702eb72, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626757106241104069, guid: a131b92566a91f44699b41da4702eb72, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626757106241104069, guid: a131b92566a91f44699b41da4702eb72, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a131b92566a91f44699b41da4702eb72, type: 3}
