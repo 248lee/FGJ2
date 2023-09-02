@@ -86,7 +86,7 @@ MonoBehaviour:
   playerHPUI: {fileID: 0}
   mouseSensitivity: 100
   clampAngle: 0
-  bulletPrefab: {fileID: 1012840008253370880, guid: 1bab28bd70d7ba64399135c8a0720b3b, type: 3}
+  bulletPrefab: {fileID: 4054190571805246957, guid: ae1b5c8916b7e4141bb40d179914d3cd, type: 3}
   bulletPoint: {fileID: 1848315197268220730}
   bulletSpeed: 25
   destroyTime: 3

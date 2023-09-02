@@ -6,6 +6,7 @@ public class AlwaysFollowPlayer : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] PlayerController player;
+    [SerializeField] float cameraOffset;
     void Start()
     {
 
@@ -14,6 +15,6 @@ public class AlwaysFollowPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = player.transform.position;
+        transform.position = player.transform.position+(Vector3.up* cameraOffset);
     }
 }
