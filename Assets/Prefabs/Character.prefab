@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 2304412601447769870}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,7 +81,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 5
   barrel: {fileID: 4418717048588914543}
-  playerHP: 6
+  playerHP: 100
+  HPIcon: {fileID: 3890237563137013993, guid: 6a03fde22ee1da046b8d238c5c7d48c9, type: 3}
+  playerHPUI: {fileID: 0}
   mouseSensitivity: 100
   clampAngle: 0
   bulletPrefab: {fileID: 1012840008253370880, guid: 1bab28bd70d7ba64399135c8a0720b3b, type: 3}

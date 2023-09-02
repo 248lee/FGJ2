@@ -11,20 +11,22 @@ public class SkillboxController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+         player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        player = GameObject.FindWithTag("Player");
+       
         Debug.Log(Vector3.Distance(transform.position, player.transform.position));
         if (Vector3.Distance(transform.position, player.transform.position) < triggerDistance) // if the player is closed enough to the skillbox
         {
             player.GetComponent<PlayerSkillManager>().AddSkill();
+            player.GetComponent<PlayerController>().AddHP(1);
             Destroy(gameObject);
         }
     }
+    
     private void OnDrawGizmos()
     {
         // Set the gizmo color
