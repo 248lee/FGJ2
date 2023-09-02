@@ -78,10 +78,7 @@ public class PlayerController : MonoBehaviour
 
     private void Fire()
     {
-        GameObject bullet = Instantiate(
-            bulletPrefab,
-            bulletPoint.transform.position,
-            bulletPoint.transform.rotation);
+        GameObject bullet = Instantiate(bulletPrefab, bulletPoint.transform.position, bulletPoint.transform.rotation);
         bullet.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * bulletSpeed;
         Destroy(bullet, destroyTime);
     }
