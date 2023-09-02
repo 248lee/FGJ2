@@ -7,14 +7,22 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // for moving
     private CharacterController controller;
-    public GameObject barrel;
     public float playerSpeed = 2.0f;
+    public GameObject barrel;
 
+    // for rotating view
     public float mouseSensitivity = 100.0f;
     public float clampAngle = 0.0f;
     private float cameraRotY = 0.0f; // rotation around the up/y axis
     private float cameraRotX = 0.0f; // rotation around the right/x axis
+
+    // for fire
+    public GameObject bulletPrefab;
+    public GameObject bulletPoint;
+    public float bulletSpeed = 5f;
+    public float destroyTime = 1f;
 
     private void Start()
     {
@@ -28,7 +36,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-
+        if (Input.GetMouseButtonDown(0)) // Mosue LB
+            Fire();
     }
 
     private void FixedUpdate()
@@ -65,5 +74,12 @@ public class PlayerController : MonoBehaviour
         {
             Camera.main.transform.rotation = Quaternion.Euler(cameraRotX, cameraRotY, 0.0f);
         }
+    }
+
+    private void Fire()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, bulletPoint.transform.position, bulletPoint.transform.rotation);
+        bullet.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * bulletSpeed;
+        Destroy(bullet, destroyTime);
     }
 }

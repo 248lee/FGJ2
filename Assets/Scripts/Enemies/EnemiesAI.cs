@@ -8,7 +8,6 @@ public class EnemiesAI : MonoBehaviour
 
     public UnityEngine.AI.NavMeshAgent agent;
 
-
     public Transform player;
 
     public LayerMask whatIsGround, whatIsPlayer;
@@ -31,15 +30,14 @@ public class EnemiesAI : MonoBehaviour
 
         player = GameObject.Find("Player").transform;
 
-
     }
 
     private void Update()
     {
 
         //Setting variables
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        playerInSightRange = Vector3.Distance(transform.position, player.position) < sightRange;
+        playerInSightRange = Vector3.Distance(transform.position, player.position) < attackRange;
 
         //Moving pattern decide
         if (!playerInSightRange && !playerInAttackRange) Patrolling();
@@ -50,7 +48,7 @@ public class EnemiesAI : MonoBehaviour
 
     private void Patrolling()
     {
-
+        Debug.Log("Patrolling");
         if (!walkPointSet) SearchWalkPoint();
         if (walkPointSet)
         {
@@ -118,6 +116,29 @@ public class EnemiesAI : MonoBehaviour
     {
 
         alreadyAttacked = false;
+
+    }
+
+
+    void OnCollisionEnter(Collision collision)
+    {
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+
+            Debug.Log("Hit");
+            //RandomSpawner.enemiesNum--;
+
+        }
+
+    }
+    private void OnDrawGizmos()
+    {
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, sightRange);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
 
     }
 

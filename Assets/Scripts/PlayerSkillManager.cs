@@ -4,9 +4,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerSkillManager : MonoBehaviour
 {
+    public TextMeshProUGUI[] skillsNoText = new TextMeshProUGUI[2];
     private int[] skills = new int[2];
 
     // Start is called before the first frame update
@@ -19,13 +21,17 @@ public class PlayerSkillManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Timers.IsTimerFinished("Skill1"))
+        if (this.skills[0] != -1 && Timers.IsTimerFinished("Skill0")) // If the skill0 is finished, clear the skill effect
         {
+            ClearSkillEffect(skills[0]);
             this.skills[0] = 0;
+            skillsNoText[0].SetText("0");
         }
-        if (Timers.IsTimerFinished("Skill2"))
+        if (this.skills[1] != -1 && Timers.IsTimerFinished("Skill1")) // If the skill1 is finished, clear the skill effect
         {
+            ClearSkillEffect(skills[1]);
             this.skills[1] = 0;
+            skillsNoText[1].SetText("0");
         }
     }
     public void AddSkill() // Adding order: skill1 -> skill2 -> The skill which lasts for the least time.
@@ -40,7 +46,7 @@ public class PlayerSkillManager : MonoBehaviour
         }
         else
         {
-            if (Timers.GetTimerPrgress("Skill1") < Timers.GetTimerPrgress("Skill2"))
+            if (Timers.GetTimerPrgress("Skill0") > Timers.GetTimerPrgress("Skill1"))
             {
                 StartCoroutine(DrawSkill(0));
             }
@@ -53,6 +59,7 @@ public class PlayerSkillManager : MonoBehaviour
     private IEnumerator DrawSkill(int no)
     {
         this.skills[no] = -1;
+        float waitSeconds = 0f;
         int lastTimeDraw = 0; // Avoid that the same icon run two times
         for (int i = 0; i < 15; i++)
         {
@@ -61,11 +68,26 @@ public class PlayerSkillManager : MonoBehaviour
             {
                 tempDrawingSkill = Random.Range(1, 10);
             }
-            Debug.Log("Drawing Skill: " + tempDrawingSkill);
-            yield return new WaitForSeconds(0.5f);
+            lastTimeDraw = tempDrawingSkill;
+            //Debug.Log("Drawing Skill: " + tempDrawingSkill);
+            skillsNoText[no].SetText(tempDrawingSkill.ToString());
+            waitSeconds += 0.05f;
+            yield return new WaitForSeconds(waitSeconds);
         }
         int resultSkill = Random.Range(1, 10);
-        Debug.Log("Resulting Skill: " + resultSkill);
+        //Debug.Log("Resulting Skill: " + resultSkill);
+        skillsNoText[no].SetText(resultSkill.ToString());
         this.skills[no] = resultSkill;
+        AddSkillEffect(resultSkill);
+        Timers.SetTimer("Skill" + no, 5f);
+    }
+    
+    private void AddSkillEffect(int no)
+    {
+        /* Add skill effects here :) */
+    }
+    private void ClearSkillEffect(int no)
+    {
+        /* Clear skill effects here :) */
     }
 }
