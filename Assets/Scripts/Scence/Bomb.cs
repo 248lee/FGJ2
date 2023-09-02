@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bomb : MonoBehaviour
@@ -11,7 +10,7 @@ public class Bomb : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player=FindObjectOfType<PlayerController>().GameObject().GetComponent<PlayerController>();
+        player=FindObjectOfType<PlayerController>();
         Bombed();
     }
 
