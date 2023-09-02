@@ -17,6 +17,7 @@ public class SkillboxController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(Vector3.Distance(transform.position, player.position));
         if (Vector3.Distance(transform.position, player.position) < triggerDistance) // if the player is closed enough to the skillbox
         {
             player.GetComponent<PlayerSkillManager>().AddSkill();
