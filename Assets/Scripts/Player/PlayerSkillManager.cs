@@ -10,8 +10,10 @@ public class PlayerSkillManager : MonoBehaviour
 {
     public Image[] skillIcons = new Image[2];
     public float skillDuration = 8f;
+    public float skill2_AddHpPeriod = 0.7f;
     private int[] skills = new int[2];
     private Coroutine[] skillCoroutines = new Coroutine[2];
+    private bool isSkill2Adding = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,15 @@ public class PlayerSkillManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isSkill2Adding)
+        {
+            if (Timers.IsTimerFinished("skill2AddHpCooldown"))
+            {
+                Timers.SetTimer("skill2AddHpCooldown", skill2_AddHpPeriod);
+                GetComponent<PlayerController>().AddHP(1);
+            }
+        }
+
         //print(Physics.GetIgnoreLayerCollision(7, 8));
         if (this.skills[0] != -1 && Timers.IsTimerFinished("Skill0")) // If the skill0 is finished, clear the skill effect
         {
@@ -119,11 +130,12 @@ public class PlayerSkillManager : MonoBehaviour
     {
         switch (no)
         {
-            case 1: // add skill no. 0
+            case 1: // add skill no. 1
                 Physics.IgnoreLayerCollision(7, 8, true);
                 break;
-            case 2:
-                GetComponent<CharacterController>().enabled = false;
+            case 2: // add skill no. 2
+                this.isSkill2Adding = true;
+                Timers.SetTimer("skill2AddHpCooldown", skill2_AddHpPeriod);
                 break;
             default:
                 break;
@@ -134,11 +146,11 @@ public class PlayerSkillManager : MonoBehaviour
         /* Clear skill effects here :) */
         switch (no)
         {
-            case 1: // clear skill no. 0
+            case 1: // clear skill no. 1
                 Physics.IgnoreLayerCollision(7, 8, false);
                 break;
-            case 2:
-                GetComponent<CharacterController>().enabled = true;
+            case 2: // clear skill no. 2
+                this.isSkill2Adding = false;
                 break;
             default:
                 break;
