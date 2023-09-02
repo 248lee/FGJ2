@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public float bulletSpeed = 5f;
     public float destroyTime = 1f;
 
+    // for HP
     public int playerHP = 6;
     [SerializeField] GameObject HPIcon;
     [SerializeField] GameObject playerHPUI;
@@ -88,13 +89,14 @@ public class PlayerController : MonoBehaviour
         bullet.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * bulletSpeed;
         Destroy(bullet, destroyTime);
     }
+
     //HP
     public void DropHP(int droppedHP)
     {
         playerHP -= droppedHP;
         for (int i=playerHPUI.transform.childCount; i > playerHP; i--)
         {
-            Debug.Log("playerHPUI" + playerHPUI.transform.childCount);
+            //Debug.Log("playerHPUI" + playerHPUI.transform.childCount);
             if (i-1 >= 0) Destroy(playerHPUI.transform.GetChild(i-1).gameObject);
         }
     }

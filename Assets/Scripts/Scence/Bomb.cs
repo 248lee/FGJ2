@@ -36,11 +36,11 @@ public class Bomb : MonoBehaviour
     }
      void Win()
     {
-
+        Debug.Log("Win");
     }
     void Lose()
     {
-
+        Debug.Log("Lose");
     }
     public void Bombed()
     {

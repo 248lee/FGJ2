@@ -25,7 +25,8 @@ public class BulletHit : MonoBehaviour
         {
             if (other.gameObject.transform.root.CompareTag(targetTag[0]))
             {
-                Destroy(gameObject);
+                //Destroy(gameObject);
+                gameObject.SetActive(false); // destroy in PlayerController
                 Destroy(other.gameObject);
             }
         }
@@ -33,7 +34,8 @@ public class BulletHit : MonoBehaviour
         {
             if (other.gameObject.transform.root.CompareTag(targetTag[1]))
             {
-                Destroy(gameObject);
+                //Destroy(gameObject);
+                gameObject.SetActive(false); // destroy in PlayerController
                 other.gameObject.transform.root.GetComponent<PlayerController>().DropHP(1);
             }
         }
