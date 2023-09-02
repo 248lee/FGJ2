@@ -224,6 +224,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2304412601447769870, guid: a131b92566a91f44699b41da4702eb72, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2304412601473611175, guid: a131b92566a91f44699b41da4702eb72, type: 3}
       propertyPath: m_Name
       value: Character
@@ -307,14 +311,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76b865a9d383e4010bddc82924771a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubePrefab: {fileID: 6113548750991684719, guid: 32a939eab9fc5484d8d64790d251f777, type: 3}
+  cubePrefab: {fileID: 8617361377785588389, guid: cdb6793509ae74b97a7ad6de4409e5ca, type: 3}
   rangeX1: -7
   rangeX2: 2.5
   rangeY: 1
   rangeZ1: -8
   rangeZ2: 1.5
   waveOver: 1
-  numSet: 4
+  numSet: 3
 --- !u!4 &1803666913
 Transform:
   m_ObjectHideFlags: 0
