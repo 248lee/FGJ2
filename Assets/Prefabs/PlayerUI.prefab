@@ -305,6 +305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  cameraOffset: 50
 --- !u!1001 &6487944590373451150
 PrefabInstance:
   m_ObjectHideFlags: 0

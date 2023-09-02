@@ -142,10 +142,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
-    - target: {fileID: 2304412601473611175, guid: a131b92566a91f44699b41da4702eb72, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 2304412601473611176, guid: a131b92566a91f44699b41da4702eb72, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -189,14 +185,6 @@ PrefabInstance:
     - target: {fileID: 2304412601473611176, guid: a131b92566a91f44699b41da4702eb72, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2304412601473611177, guid: a131b92566a91f44699b41da4702eb72, type: 3}
-      propertyPath: HPIcon
-      value: 
-      objectReference: {fileID: 3890237563137013993, guid: 6a03fde22ee1da046b8d238c5c7d48c9, type: 3}
-    - target: {fileID: 2304412601473611177, guid: a131b92566a91f44699b41da4702eb72, type: 3}
-      propertyPath: playerHP
-      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2304412601473611177, guid: a131b92566a91f44699b41da4702eb72, type: 3}
       propertyPath: playerHPUI
@@ -303,6 +291,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1469254404}
+    - target: {fileID: 4900255983794962938, guid: 54de78ba61344fc45aaf5e056efccd61, type: 3}
+      propertyPath: cameraOffset
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54de78ba61344fc45aaf5e056efccd61, type: 3}
 --- !u!1 &750647994 stripped
