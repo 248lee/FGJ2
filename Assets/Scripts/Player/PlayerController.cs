@@ -6,13 +6,13 @@ using System.Collections.Generic;
 using SupSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.Rendering.PostProcessing;
 public class PlayerController : MonoBehaviour
 {
     // for moving
     public float playerSpeed = 2.0f;
     public GameObject barrel;
-
+   
     // for rotating view
     public float mouseSensitivity = 200.0f;
     public float clampAngle = 0.0f;
@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     private SoundController sControl;
     [SerializeField] GameObject HPIcon;
     [SerializeField] GameObject playerHPUI;
+    [SerializeField] PostProcessVolume playerPostProcess;
 
     public string titleSceneName = "TitlePage";
 
@@ -112,6 +113,26 @@ public class PlayerController : MonoBehaviour
         {
             //Debug.Log("playerHPUI" + playerHPUI.transform.childCount);
             if (i - 1 >= 0) Destroy(playerHPUI.transform.GetChild(i - 1).gameObject);
+        }
+        PlayerScenceShinning();
+    }
+    void PlayerScenceShinning()
+    {
+        InvokeRepeating(nameof(PlayerShinningSwitch), 0.1f, 0.2f);
+        Invoke(nameof(CloseEffect), 2.1f);
+    }
+    void PlayerShinningSwitch()
+    {
+        Debug
+            .Log("switch");
+        playerPostProcess.profile.GetSetting<ColorGrading>().active=!playerPostProcess.profile.GetSetting<ColorGrading>().active;
+    }
+    void CloseEffect()
+    {
+        CancelInvoke(nameof(PlayerShinningSwitch));
+        foreach (PostProcessEffectSettings item in playerPostProcess.profile.settings)
+        {
+            item.active=false;
         }
     }
     public void AddHP(int addedHP)
