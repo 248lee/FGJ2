@@ -8,7 +8,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // for moving
-    private CharacterController controller;
     public float playerSpeed = 2.0f;
     public GameObject barrel;
 
@@ -31,11 +30,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        controller = gameObject.GetComponent<CharacterController>();
-        Physics.IgnoreCollision(
-            transform.GetChild(0).GetComponent<BoxCollider>(), controller.GetComponent<Collider>()
-        ); // ignore self collision
-        
+
         Vector3 rot = transform.localRotation.eulerAngles;
         cameraRotY = rot.y;
         cameraRotX = rot.x;
@@ -66,9 +61,9 @@ public class PlayerController : MonoBehaviour
         Vector3 direction = (moveDirectionForward + moveDirectionSide).normalized;
         Vector3 distance = direction * playerSpeed * Time.deltaTime;
 
-        controller.Move(distance);
+        GetComponent<Rigidbody>().velocity = distance;
     }
-   
+
     private void LookAt()
     {
         cameraRotY += Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
@@ -97,10 +92,10 @@ public class PlayerController : MonoBehaviour
     public void DropHP(int droppedHP)
     {
         playerHP -= droppedHP;
-        for (int i=playerHPUI.transform.childCount; i > playerHP; i--)
+        for (int i = playerHPUI.transform.childCount; i > playerHP; i--)
         {
             //Debug.Log("playerHPUI" + playerHPUI.transform.childCount);
-            if (i-1 >= 0) Destroy(playerHPUI.transform.GetChild(i-1).gameObject);
+            if (i - 1 >= 0) Destroy(playerHPUI.transform.GetChild(i - 1).gameObject);
         }
     }
     public void AddHP(int addedHP)

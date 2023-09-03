@@ -18,15 +18,15 @@ public class RandomSpawner : MonoBehaviour
 
     private void Start()
     {
-        rangeX1 = player.transform.position.x - 50;
-        rangeX2 = player.transform.position.x + 50;
-        rangeZ1 = player.transform.position.z - 50;
-        rangeZ2 = player.transform.position.z + 50;
+        rangeX1 = player.transform.position.x - 100;
+        rangeX2 = player.transform.position.x + 100;
+        rangeZ1 = player.transform.position.z - 100;
+        rangeZ2 = player.transform.position.z + 100;
     }
 
     void Update()
     {
-        if (waveOver)
+        if (Timers.IsTimerFinished("SpawnTimer" + cubePrefab.name))
         {
             waveOver = false;
             for (int i = 0; i < wave * numSet; i++)
@@ -38,10 +38,9 @@ public class RandomSpawner : MonoBehaviour
 
 
             }
-            Timers.SetTimer("SpawnTimer", spawnPerSecs);
+            Timers.SetTimer("SpawnTimer" + cubePrefab.name, spawnPerSecs);
         }
 
-        if (Timers.IsTimerFinished("SpawnTimer")) waveOver = true;
     }
 
 }

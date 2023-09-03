@@ -63,6 +63,7 @@ public class EnemiesAI : MonoBehaviour
         if (walkPointSet)
         {
 
+            Debug.Log("walkPointSet");
             agent.SetDestination(walkPoint);
 
         }
@@ -131,12 +132,14 @@ public class EnemiesAI : MonoBehaviour
 
     private void Fire()
     {
-
-        GameObject bullet = Instantiate(bulletPrefab, bulletPoint.transform.position, bulletPoint.transform.rotation);
-        //bullet.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * bulletSpeed;
-        bullet.GetComponent<Rigidbody>().velocity = (player.transform.position - bulletPoint.transform.position) * bulletSpeed;
-        Destroy(bullet, destroyTime);
-
+        GameObject bullet;
+        if (bulletPoint != null)
+        {
+            bullet = Instantiate(bulletPrefab, bulletPoint.transform.position, bulletPoint.transform.rotation);
+            //bullet.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * bulletSpeed;
+            bullet.GetComponent<Rigidbody>().velocity = (player.transform.position - bulletPoint.transform.position) * bulletSpeed;
+            Destroy(bullet, destroyTime);
+        }
     }
 
     public void IsDamaged()
@@ -152,8 +155,7 @@ public class EnemiesAI : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, sightRange);
         Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(transform.position, chaseRange);
-        //Gizmos.color = Color.green;
-        //Gizmos.DrawWireSphere(transform.position, attackRange);
+
 
     }
 }
