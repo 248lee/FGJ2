@@ -63,6 +63,7 @@ public class EnemiesAI : MonoBehaviour
         if (walkPointSet)
         {
 
+            Debug.Log("walkPointSet");
             agent.SetDestination(walkPoint);
 
         }
