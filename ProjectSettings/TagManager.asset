@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - bullets
   - Processor
+  - Audio
   layers:
   - Default
   - TransparentFX
