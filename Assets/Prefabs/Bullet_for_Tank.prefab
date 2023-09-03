@@ -127,4 +127,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 162b5c801c25b02499a65ab57c936e97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyBombVFX: {fileID: 5883027604336934158, guid: 021a195357ff3884b82671fd15342fb6, type: 3}
   isEnemy: 1
