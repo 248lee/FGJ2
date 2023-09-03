@@ -21,7 +21,7 @@ public class SkillsDebug : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Alpha0 + i))
                 {
-                    skillManager.DrawSkill_ForDebug(0, i - 1);
+                    skillManager.DrawSkill_ForDebug(0, i);
                 }
             }
         }
