@@ -5,13 +5,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerSkillManager : MonoBehaviour
 {
     public Image[] skillIcons = new Image[2];
+    public TMP_Text[] skillTexts;
     public float skillDuration = 8f;
     private int[] skillSlots = new int[2];
     private Coroutine[] skillCoroutines = new Coroutine[2];
+    private string[] skillDescriptions = { "", "穿牆", "持續加血", "持續扣血", "加跑速~", "爆ping拉", "敵人反彈", "被打還會回血", "重力設錯了" };
     public Skill[] skillDataset = new Skill[9];
 
     // Start is called before the first frame update
@@ -42,12 +45,14 @@ public class PlayerSkillManager : MonoBehaviour
             ClearSkillEffect(skillSlots[0]);
             this.skillSlots[0] = 0;
             skillIcons[0].sprite = Resources.Load<Sprite>("Icons/0");
+            skillTexts[0].SetText("Bug1:");
         }
         if (this.skillSlots[1] > 0 && Timers.IsTimerFinished("Skill1")) // If the skill1 is finished, clear the skill effect
         {
             ClearSkillEffect(skillSlots[1]);
             this.skillSlots[1] = 0;
             skillIcons[1].sprite = Resources.Load<Sprite>("Icons/0");
+            skillTexts[1].text = ("Bug2:");
         }
     }
     public void AddSkill() // Adding order: skill1 -> skill2 -> The skill which lasts for the least time.
@@ -141,6 +146,7 @@ public class PlayerSkillManager : MonoBehaviour
 
         //Debug.Log("Resulting Skill: " + resultSkill);
         skillIcons[slotNo].sprite = Resources.Load<Sprite>("Icons/" + resultSkill);
+        skillTexts[slotNo].SetText(skillDescriptions[resultSkill]);
         this.skillSlots[slotNo] = resultSkill;
         AddSkillEffect(resultSkill);
         Timers.SetTimer("Skill" + slotNo, skillDuration);

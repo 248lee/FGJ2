@@ -27,7 +27,7 @@ public class SkillboxController : MonoBehaviour
             sControl.PlayAudio("技能箱", SoundController.AudioType.SE, false);
             player.GetComponent<PlayerSkillManager>().AddSkill();
             player.GetComponent<PlayerController>().AddHP(1);
-            Destroy(gameObject);
+            Object.Destroy(gameObject);
         }
     }
 

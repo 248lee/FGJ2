@@ -15,6 +15,7 @@ public class Bomb : MonoBehaviour
     public Canvas resultUI;
     public Canvas playerUI;
     public bool isEnded;
+    private bool state;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,16 @@ public class Bomb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (state == true)
+        {
+            winConditionText.text = "活下去！\n再稱" + (int)(this.winTime * (1 - Timers.GetTimerPrgress("WinTimer")));
+            winConditionBGImage.color = Color.green;
+        }
+        else
+        {
+            winConditionText.text = "自殺吧！\n努力在" + (int)(this.winTime * (1 - Timers.GetTimerPrgress("WinTimer"))) + "秒內死吧";
+            winConditionBGImage.color = Color.red;
+        }
         if (isEnded) return;
 
         if (player.playerHP <= 0)
@@ -69,13 +80,11 @@ public class Bomb : MonoBehaviour
         winSwitch=!winSwitch;
         if(winSwitch) 
         {
-            winConditionText.text = "活下去！";
-            winConditionBGImage.color = Color.green;
+            this.state = true;
         }
         else
         {
-            winConditionText.text = "自殺吧！";
-            winConditionBGImage.color = Color.red;
+            this.state = false;
         }
         Timers.AddTime("WinTimer", winTime);
     }
