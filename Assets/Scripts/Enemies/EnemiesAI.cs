@@ -131,12 +131,14 @@ public class EnemiesAI : MonoBehaviour
 
     private void Fire()
     {
-
-        GameObject bullet = Instantiate(bulletPrefab, bulletPoint.transform.position, bulletPoint.transform.rotation);
-        //bullet.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * bulletSpeed;
-        bullet.GetComponent<Rigidbody>().velocity = (player.transform.position - bulletPoint.transform.position) * bulletSpeed;
-        Destroy(bullet, destroyTime);
-
+        GameObject bullet;
+        if (bulletPoint != null)
+        {
+            bullet = Instantiate(bulletPrefab, bulletPoint.transform.position, bulletPoint.transform.rotation);
+            //bullet.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * bulletSpeed;
+            bullet.GetComponent<Rigidbody>().velocity = (player.transform.position - bulletPoint.transform.position) * bulletSpeed;
+            Destroy(bullet, destroyTime);
+        }
     }
 
     public void IsDamaged()
