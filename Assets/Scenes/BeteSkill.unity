@@ -257,7 +257,7 @@ MonoBehaviour:
   cubePrefab: {fileID: 2550637144319894959, guid: 9085c4c9ac504eb4da0ea8a7d6e846f5, type: 3}
   player: {fileID: 186972996}
   waveOver: 1
-  numSet: 3
+  numSet: 1
   spawnPerSecs: 8
 --- !u!114 &79765475
 MonoBehaviour:
@@ -307,6 +307,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4064438321608431536, guid: a131b92566a91f44699b41da4702eb72, type: 3}
   m_PrefabInstance: {fileID: 9068381459401659731}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &186973010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186972996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6528efeffc8424a4e9686e55518abd33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatingHeight: 9
 --- !u!114 &262389557 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5603761506643761166, guid: 68af60ede580ab04294286a3d21f9bf0, type: 3}
@@ -829,6 +842,10 @@ PrefabInstance:
     - target: {fileID: 5472169412399750150, guid: a131b92566a91f44699b41da4702eb72, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8656552938211124589, guid: a131b92566a91f44699b41da4702eb72, type: 3}
+      propertyPath: floatingHeight
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a131b92566a91f44699b41da4702eb72, type: 3}
