@@ -23,16 +23,17 @@ public class BulletHit : MonoBehaviour
     {
         if (isEnemy)
         {
-            if (other.gameObject.transform.root.CompareTag(targetTag[0]))
+            if (other.gameObject.transform.root.CompareTag(targetTag[0])) // if players bullet hits enemies
             {
                 //Destroy(gameObject);
                 gameObject.SetActive(false); // destroy in PlayerController
+                GameObject.FindWithTag("Player").GetComponent<Skill6_ReverseDamage>().SetHitEnemySignal();
                 Destroy(other.gameObject);
             }
         }
         else
         {
-            if (other.gameObject.transform.root.CompareTag(targetTag[1]))
+            if (other.gameObject.transform.root.CompareTag(targetTag[1])) // if enemies bullet hits player
             {
                 //Destroy(gameObject);
                 gameObject.SetActive(false); // destroy in PlayerController

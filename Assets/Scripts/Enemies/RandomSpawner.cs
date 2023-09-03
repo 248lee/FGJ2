@@ -26,7 +26,7 @@ public class RandomSpawner : MonoBehaviour
 
     void Update()
     {
-        if (waveOver)
+        if (Timers.IsTimerFinished("SpawnTimer" + cubePrefab.name))
         {
             waveOver = false;
             for (int i = 0; i < wave * numSet; i++)
@@ -38,10 +38,9 @@ public class RandomSpawner : MonoBehaviour
 
 
             }
-            Timers.SetTimer("SpawnTimer", spawnPerSecs);
+            Timers.SetTimer("SpawnTimer" + cubePrefab.name, spawnPerSecs);
         }
 
-        if (Timers.IsTimerFinished("SpawnTimer")) waveOver = true;
     }
 
 }

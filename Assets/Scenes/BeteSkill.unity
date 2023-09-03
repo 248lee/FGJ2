@@ -240,7 +240,7 @@ MonoBehaviour:
   cubePrefab: {fileID: 6822301918986546573, guid: 6b03da8e98014cb4ca395ebc995bfe86, type: 3}
   player: {fileID: 186972996}
   waveOver: 1
-  numSet: 5
+  numSet: 10
   spawnPerSecs: 5
 --- !u!114 &79765474
 MonoBehaviour:
@@ -257,8 +257,8 @@ MonoBehaviour:
   cubePrefab: {fileID: 2550637144319894959, guid: 9085c4c9ac504eb4da0ea8a7d6e846f5, type: 3}
   player: {fileID: 186972996}
   waveOver: 1
-  numSet: 5
-  spawnPerSecs: 20
+  numSet: 3
+  spawnPerSecs: 8
 --- !u!114 &79765475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -734,6 +734,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 247307999527242849, guid: a131b92566a91f44699b41da4702eb72, type: 3}
+      propertyPath: skill4PlayerSpeed
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 4064438321608431537, guid: a131b92566a91f44699b41da4702eb72, type: 3}
       propertyPath: skillIcons.Array.data[0]
       value: 
@@ -742,6 +746,10 @@ PrefabInstance:
       propertyPath: skillIcons.Array.data[1]
       value: 
       objectReference: {fileID: 262389557}
+    - target: {fileID: 4064438321608431540, guid: a131b92566a91f44699b41da4702eb72, type: 3}
+      propertyPath: playerHP
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4064438321608431540, guid: a131b92566a91f44699b41da4702eb72, type: 3}
       propertyPath: playerHPUI
       value: 
