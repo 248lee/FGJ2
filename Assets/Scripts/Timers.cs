@@ -47,6 +47,36 @@ public class Timers : MonoBehaviour
         CleanGarbageTimer();
     }
 
+    public static void AddTime(string name, float time)
+    {
+        if (!IsTimerExist(name))
+        {
+            SetTimer(name, time);
+            return;
+        }
+
+        for (int i = 0; i < timers.Count; i++)
+        {
+            if (name == timers[i].name)
+            {
+                timers[i].startTime = Time.time;
+                timers[i].duration = time;
+            }
+        }
+    }
+
+    public static bool IsTimerExist(string name)
+    {
+        for (int i = 0; i < timers.Count; i++)
+        {
+            if (name == timers[i].name)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static bool IsTimerFinished(string name)
     {
         for (int i = 0; i < timers.Count; i++)
