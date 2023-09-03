@@ -34,8 +34,8 @@ public class BulletHit : MonoBehaviour
                 randomSpawner.Damaged();
                 GameObject vfx = Instantiate(enemyBombVFX, transform.position, Quaternion.identity);
                 gameObject.SetActive(false); // destroy in PlayerController
-                GameObject.FindWithTag("Player").GetComponent<Skill6_ReverseDamage>().SetHitEnemySignal();
-                Destroy(other.gameObject);
+                GameObject.Find("Character").GetComponent<Skill6_ReverseDamage>().SetHitEnemySignal();
+                Object.Destroy(other.gameObject);
                 Destroy(vfx, 4f);
             }
         }
