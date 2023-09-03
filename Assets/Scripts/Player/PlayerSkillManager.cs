@@ -12,7 +12,7 @@ public class PlayerSkillManager : MonoBehaviour
     public float skillDuration = 8f;
     private int[] skillSlots = new int[2];
     private Coroutine[] skillCoroutines = new Coroutine[2];
-    private Skill[] skillDataset = new Skill[6];
+    public Skill[] skillDataset = new Skill[6];
 
     // Start is called before the first frame update
     void Start()
@@ -100,7 +100,7 @@ public class PlayerSkillManager : MonoBehaviour
         this.skillSlots[slotNo] = -1;
         float waitSeconds = 0f;
         int lastTimeDraw = 0; // Avoid that the same icon runs two times
-        for (int i = 0; i < 15; i++)
+        for (int i = 0; i < 15; i++) // show random get skills effect
         {
             int tempDrawingSkill = Random.Range(1, skillDataset.Length);
             while (tempDrawingSkill == lastTimeDraw)
@@ -113,7 +113,8 @@ public class PlayerSkillManager : MonoBehaviour
             waitSeconds += 0.05f;
             yield return new WaitForSeconds(waitSeconds);
         }
-        int resultSkill = Random.Range(4, skillDataset.Length);
+
+        int resultSkill = Random.Range(1, skillDataset.Length);
         while (true) // Check whether skill0 and skill1 has the same skill No. If same, redraw.
         {
             bool isSkillConflict = false;
@@ -127,7 +128,7 @@ public class PlayerSkillManager : MonoBehaviour
             }
             if (isSkillConflict)
             {
-                resultSkill = Random.Range(4, skillDataset.Length);
+                resultSkill = Random.Range(1, skillDataset.Length);
             }
             else
             {
@@ -139,6 +140,19 @@ public class PlayerSkillManager : MonoBehaviour
         skillIcons[slotNo].sprite = Resources.Load<Sprite>("Icons/" + resultSkill);
         this.skillSlots[slotNo] = resultSkill;
         AddSkillEffect(resultSkill);
+        Timers.SetTimer("Skill" + slotNo, skillDuration);
+    }
+
+    public void DrawSkill_ForDebug(int slotNo, int skill)
+    {
+        if (skillSlots[slotNo] > 0)
+            ClearSkillEffect(skillSlots[slotNo]);
+        this.skillSlots[slotNo] = -1;
+
+        //Debug.Log("Resulting Skill: " + resultSkill);
+        skillIcons[slotNo].sprite = Resources.Load<Sprite>("Icons/" + skill);
+        this.skillSlots[slotNo] = skill;
+        AddSkillEffect(skill);
         Timers.SetTimer("Skill" + slotNo, skillDuration);
     }
 
