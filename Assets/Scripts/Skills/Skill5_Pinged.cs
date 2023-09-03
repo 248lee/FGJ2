@@ -39,10 +39,8 @@ public class Skill5_Pinged : Skill
         if (isReadyToPlay && Timers.IsTimerFinished("PlayRecordedPosition"))
         {
             // perform back to the recorded position
-            GetComponent<CharacterController>().enabled = false;
             transform.position = recordedPosition;
             this.isReadyToPlay = false;
-            GetComponent<CharacterController>().enabled = true;
         }
     }
     public override void CastSkill()

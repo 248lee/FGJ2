@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
         Vector3 direction = (moveDirectionForward + moveDirectionSide).normalized;
         Vector3 distance = direction * playerSpeed * Time.deltaTime;
 
-        transform.position += distance;
+        GetComponent<Rigidbody>().velocity = distance;
     }
    
     private void LookAt()

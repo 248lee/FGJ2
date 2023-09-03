@@ -36,7 +36,6 @@ public class PlayerSkillManager : MonoBehaviour
         //print(Physics.GetIgnoreLayerCollision(7, 8));
         if (this.skillSlots[0] > 0 && Timers.IsTimerFinished("Skill0")) // If the skill0 is finished, clear the skill effect
         {
-            print(this.skillSlots[0]);
             ClearSkillEffect(skillSlots[0]);
             this.skillSlots[0] = 0;
             skillIcons[0].sprite = Resources.Load<Sprite>("Icons/0");

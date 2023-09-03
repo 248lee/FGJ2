@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 247307999527242862}
   - component: {fileID: 247307999527242857}
   - component: {fileID: 247307999527242849}
+  - component: {fileID: 5387857442163014564}
   - component: {fileID: 3753981835286234958}
   - component: {fileID: 7581041189301286830}
   m_Layer: 7
@@ -143,6 +144,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill4PlayerSpeed: 16
+--- !u!114 &5387857442163014564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4064438321608431536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9dbd7a71378d204db77441687bfd2dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  periodMinSecond: 1.1
+  periodMaxSecond: 3
+  playAfterRecordSecond: 1
 --- !u!65 &3753981835286234958
 BoxCollider:
   m_ObjectHideFlags: 0
