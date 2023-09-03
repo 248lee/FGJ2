@@ -3,6 +3,7 @@
 */
 using System.Collections;
 using System.Collections.Generic;
+using SupSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -26,6 +27,9 @@ public class PlayerController : MonoBehaviour
 
     // for HP
     public int playerHP = 6;
+
+    //for SE
+    private SoundController sControl;
     [SerializeField] GameObject HPIcon;
     [SerializeField] GameObject playerHPUI;
 
@@ -34,10 +38,12 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
 
+        sControl = GameObject.FindGameObjectWithTag("Audio").GetComponent<SoundController>();
         Vector3 rot = transform.localRotation.eulerAngles;
         cameraRotY = rot.y;
         cameraRotX = rot.x;
         Cursor.lockState = CursorLockMode.Locked;
+
 
         AddHP(0);
     }
@@ -90,6 +96,7 @@ public class PlayerController : MonoBehaviour
 
     private void Fire()
     {
+        sControl.PlayAudio("我方發射", SoundController.AudioType.SE, false);
         GameObject bullet = Instantiate(bulletPrefab, bulletPoint.transform.position, bulletPoint.transform.rotation);
         bullet.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * bulletSpeed;
         Destroy(bullet, destroyTime);
