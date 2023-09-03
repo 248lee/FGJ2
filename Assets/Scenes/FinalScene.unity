@@ -732,6 +732,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4521433619338096495, guid: 54de78ba61344fc45aaf5e056efccd61, type: 3}
+      propertyPath: field of view
+      value: 67
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521433619338096495, guid: 54de78ba61344fc45aaf5e056efccd61, type: 3}
+      propertyPath: far clip plane
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 4900255983163684306, guid: 54de78ba61344fc45aaf5e056efccd61, type: 3}
       propertyPath: m_Pivot.x
       value: 0
