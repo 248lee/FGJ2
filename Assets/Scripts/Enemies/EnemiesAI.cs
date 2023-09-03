@@ -154,8 +154,7 @@ public class EnemiesAI : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, sightRange);
         Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(transform.position, chaseRange);
-        //Gizmos.color = Color.green;
-        //Gizmos.DrawWireSphere(transform.position, attackRange);
+
 
     }
 }

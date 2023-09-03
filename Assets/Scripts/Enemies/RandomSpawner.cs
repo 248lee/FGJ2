@@ -18,10 +18,10 @@ public class RandomSpawner : MonoBehaviour
 
     private void Start()
     {
-        rangeX1 = player.transform.position.x - 50;
-        rangeX2 = player.transform.position.x + 50;
-        rangeZ1 = player.transform.position.z - 50;
-        rangeZ2 = player.transform.position.z + 50;
+        rangeX1 = player.transform.position.x - 100;
+        rangeX2 = player.transform.position.x + 100;
+        rangeZ1 = player.transform.position.z - 100;
+        rangeZ2 = player.transform.position.z + 100;
     }
 
     void Update()
