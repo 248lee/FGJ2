@@ -35,7 +35,7 @@ public class BulletHit : MonoBehaviour
                 GameObject vfx = Instantiate(enemyBombVFX, transform.position, Quaternion.identity);
                 gameObject.SetActive(false); // destroy in PlayerController
                 GameObject.FindWithTag("Player").GetComponent<Skill6_ReverseDamage>().SetHitEnemySignal();
-                Object.Destroy(other.gameObject);
+                Destroy(other.gameObject);
                 Destroy(vfx, 4f);
             }
         }
@@ -51,7 +51,7 @@ public class BulletHit : MonoBehaviour
                 int changingWinCondtion = Random.Range(0, 21);
                 if (changingWinCondtion < 1) // 10% to change
                 {
-                  FindObjectOfType<Bomb>().Bombed();
+                    FindObjectOfType<Bomb>().Bombed();
                 }
             }
         }
