@@ -16,6 +16,7 @@ public class Skill7_Absorb : Skill
     // Update is called once per frame
     void Update()
     {
+        //print(isSkill7_Absorbing);
         if (isSkill7_Absorbing)
         {
             if (hitPlayerSignal)

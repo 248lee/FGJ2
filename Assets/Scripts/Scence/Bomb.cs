@@ -12,17 +12,23 @@ public class Bomb : MonoBehaviour
 
     public TextMeshProUGUI winConditionText;
     public Image winConditionBGImage;
+    public Canvas resultUI;
+    public Canvas playerUI;
+    public bool isEnded;
 
     // Start is called before the first frame update
     void Start()
     {
         player=FindObjectOfType<PlayerController>();
         Bombed();
+        isEnded = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isEnded) return;
+
         if (player.playerHP <= 0)
         {
             if (winSwitch)
@@ -38,15 +44,25 @@ public class Bomb : MonoBehaviour
         {
             Win();
         }
-        
+        //Debug.Log(Timers.GetTimerPrgress("WinTimer"));
     }
-     void Win()
+    void Win()
     {
-        Debug.Log("Win");
+        isEnded = true;
+        playerUI.gameObject.SetActive(false);
+        resultUI.gameObject.SetActive(true);
+        GameObject.FindWithTag("FailedUI").SetActive(false);
+        GameObject.FindWithTag("SuccessedUI").SetActive(true);
+        //Debug.Log("Win");
     }
     void Lose()
     {
-        Debug.Log("Lose");
+        isEnded = true;
+        playerUI.gameObject.SetActive(false);
+        resultUI.gameObject.SetActive(true);
+        GameObject.FindWithTag("FailedUI").SetActive(true);
+        GameObject.FindWithTag("SuccessedUI").SetActive(false);
+        //Debug.Log("Lose");
     }
     public void Bombed()
     {
@@ -55,12 +71,12 @@ public class Bomb : MonoBehaviour
         {
             winConditionText.text = "活下去！";
             winConditionBGImage.color = Color.green;
-            Timers.SetTimer("WinTimer", winTime);
         }
         else
         {
             winConditionText.text = "自殺吧！";
             winConditionBGImage.color = Color.red;
         }
+        Timers.AddTime("WinTimer", winTime);
     }
 }

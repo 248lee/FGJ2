@@ -3,14 +3,16 @@
 */
 using System.Collections;
 using System.Collections.Generic;
+using SupSystem;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+using UnityEngine.Rendering.PostProcessing;
 public class PlayerController : MonoBehaviour
 {
     // for moving
     public float playerSpeed = 2.0f;
     public GameObject barrel;
-
+   
     // for rotating view
     public float mouseSensitivity = 200.0f;
     public float clampAngle = 0.0f;
@@ -25,12 +27,19 @@ public class PlayerController : MonoBehaviour
 
     // for HP
     public int playerHP = 6;
+
+    //for SE
+    private SoundController sControl;
     [SerializeField] GameObject HPIcon;
     [SerializeField] GameObject playerHPUI;
+    [SerializeField] PostProcessVolume playerPostProcess;
+
+    public string titleSceneName = "TitlePage";
 
     private void Start()
     {
 
+        sControl = GameObject.FindGameObjectWithTag("Audio").GetComponent<SoundController>();
         Vector3 rot = transform.localRotation.eulerAngles;
         cameraRotY = rot.y;
         cameraRotX = rot.x;
@@ -41,12 +50,19 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            SwitchScene(titleSceneName);
+
+        if (GameObject.FindWithTag("Processor").GetComponent<Bomb>().isEnded) return;
+
         if (Input.GetMouseButtonDown(0)) // Mosue LB
             Fire();
     }
 
     private void FixedUpdate()
     {
+        if (GameObject.FindWithTag("Processor").GetComponent<Bomb>().isEnded) return;
+        
         Move();
         LookAt();
     }
@@ -83,6 +99,7 @@ public class PlayerController : MonoBehaviour
 
     private void Fire()
     {
+        sControl.PlayAudio("我方發射", SoundController.AudioType.SE, false);
         GameObject bullet = Instantiate(bulletPrefab, bulletPoint.transform.position, bulletPoint.transform.rotation);
         bullet.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * bulletSpeed;
         Destroy(bullet, destroyTime);
@@ -97,6 +114,26 @@ public class PlayerController : MonoBehaviour
             //Debug.Log("playerHPUI" + playerHPUI.transform.childCount);
             if (i - 1 >= 0) Destroy(playerHPUI.transform.GetChild(i - 1).gameObject);
         }
+        PlayerScenceShinning();
+    }
+    void PlayerScenceShinning()
+    {
+        InvokeRepeating(nameof(PlayerShinningSwitch), 0.1f, 0.2f);
+        Invoke(nameof(CloseEffect), 2.1f);
+    }
+    void PlayerShinningSwitch()
+    {
+        Debug
+            .Log("switch");
+        playerPostProcess.profile.GetSetting<ColorGrading>().active=!playerPostProcess.profile.GetSetting<ColorGrading>().active;
+    }
+    void CloseEffect()
+    {
+        CancelInvoke(nameof(PlayerShinningSwitch));
+        foreach (PostProcessEffectSettings item in playerPostProcess.profile.settings)
+        {
+            item.active=false;
+        }
     }
     public void AddHP(int addedHP)
     {
@@ -105,5 +142,10 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(HPIcon, playerHPUI.transform);
         }
+    }
+
+    public void SwitchScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }
