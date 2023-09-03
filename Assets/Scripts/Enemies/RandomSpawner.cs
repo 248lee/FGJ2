@@ -28,7 +28,7 @@ public class RandomSpawner : MonoBehaviour
     {
         if (waveOver)
         {
-
+            waveOver = false;
             for (int i = 0; i < wave * numSet; i++)
             {
 
@@ -38,7 +38,6 @@ public class RandomSpawner : MonoBehaviour
 
 
             }
-            waveOver = false;
             Timers.SetTimer("SpawnTimer", spawnPerSecs);
         }
 
