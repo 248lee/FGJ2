@@ -23,18 +23,20 @@ public class BulletHit : MonoBehaviour
     {
         if (isEnemy)
         {
-            if (other.gameObject.CompareTag(targetTag[0]))
+            if (other.gameObject.transform.root.CompareTag(targetTag[0]))
             {
-                Destroy(gameObject);
+                //Destroy(gameObject);
+                gameObject.SetActive(false); // destroy in PlayerController
                 Destroy(other.gameObject);
             }
         }
         else
         {
-            if (other.gameObject.CompareTag(targetTag[1]))
+            if (other.gameObject.transform.root.CompareTag(targetTag[1]))
             {
-                Destroy(gameObject);
-                other.gameObject.GetComponent<PlayerController>().DropHP(1);
+                //Destroy(gameObject);
+                gameObject.SetActive(false); // destroy in PlayerController
+                other.gameObject.transform.root.GetComponent<PlayerController>().DropHP(1);
             }
         }
     }

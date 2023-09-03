@@ -9,7 +9,7 @@ public class AlwaysFollowPlayer : MonoBehaviour
     [SerializeField] float cameraOffset;
     void Start()
     {
-
+        player=FindObjectOfType<PlayerController>();
     }
 
     // Update is called once per frame
