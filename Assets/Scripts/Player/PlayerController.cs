@@ -3,9 +3,10 @@
 */
 using System.Collections;
 using System.Collections.Generic;
+using SupSystem;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Rendering.PostProcessing;
-
 public class PlayerController : MonoBehaviour
 {
     // for moving
@@ -26,17 +27,24 @@ public class PlayerController : MonoBehaviour
 
     // for HP
     public int playerHP = 6;
+
+    //for SE
+    private SoundController sControl;
     [SerializeField] GameObject HPIcon;
     [SerializeField] GameObject playerHPUI;
     [SerializeField] PostProcessVolume playerPostProcess;
 
+    public string titleSceneName = "TitlePage";
+
     private void Start()
     {
 
+        sControl = GameObject.FindGameObjectWithTag("Audio").GetComponent<SoundController>();
         Vector3 rot = transform.localRotation.eulerAngles;
         cameraRotY = rot.y;
         cameraRotX = rot.x;
         Cursor.lockState = CursorLockMode.Locked;
+
 
         AddHP(0);
     }
@@ -45,6 +53,10 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)) // Mosue LB
             Fire();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            SwitchScene(titleSceneName);
+
     }
 
     private void FixedUpdate()
@@ -85,6 +97,7 @@ public class PlayerController : MonoBehaviour
 
     private void Fire()
     {
+        sControl.PlayAudio("我方發射", SoundController.AudioType.SE, false);
         GameObject bullet = Instantiate(bulletPrefab, bulletPoint.transform.position, bulletPoint.transform.rotation);
         bullet.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * bulletSpeed;
         Destroy(bullet, destroyTime);
@@ -127,5 +140,10 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(HPIcon, playerHPUI.transform);
         }
+    }
+
+    public void SwitchScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }
