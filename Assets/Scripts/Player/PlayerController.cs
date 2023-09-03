@@ -32,6 +32,9 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
+        Physics.IgnoreCollision(
+            transform.GetChild(0).GetComponent<BoxCollider>(), controller.GetComponent<Collider>()
+        ); // ignore self collision
         
         Vector3 rot = transform.localRotation.eulerAngles;
         cameraRotY = rot.y;
