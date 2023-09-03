@@ -117,7 +117,7 @@ public class PlayerSkillManager : MonoBehaviour
             yield return new WaitForSeconds(waitSeconds);
         }
 
-        int resultSkill = Random.Range(7, skillDataset.Length);
+        int resultSkill = Random.Range(1, skillDataset.Length);
         while (true) // Check whether skill0 and skill1 has the same skill No. If same, redraw.
         {
             bool isSkillConflict = false;
@@ -131,7 +131,7 @@ public class PlayerSkillManager : MonoBehaviour
             }
             if (isSkillConflict)
             {
-                resultSkill = Random.Range(7, skillDataset.Length);
+                resultSkill = Random.Range(1, skillDataset.Length);
             }
             else
             {
