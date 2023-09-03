@@ -5,14 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class StartPageControll : MonoBehaviour
 {
-    [SerializeField]string startPage;
     [SerializeField] GameObject SettingPage;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.None;
     }
-    public void StartGame()
+    public void StartGame(string startPage)
     {
         SceneManager.LoadScene(startPage);
     }

@@ -704,6 +704,10 @@ PrefabInstance:
       propertyPath: playerSpeed
       value: 280
       objectReference: {fileID: 0}
+    - target: {fileID: 4064438321608431540, guid: a131b92566a91f44699b41da4702eb72, type: 3}
+      propertyPath: titleSceneName
+      value: TitlePage
+      objectReference: {fileID: 0}
     - target: {fileID: 4064438321608431541, guid: a131b92566a91f44699b41da4702eb72, type: 3}
       propertyPath: m_RootOrder
       value: 2

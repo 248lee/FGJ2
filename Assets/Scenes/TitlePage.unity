@@ -1045,7 +1045,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1579836189}
   m_Father: {fileID: 1862695672}
@@ -1803,13 +1803,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1862695673}
         m_TargetAssemblyTypeName: StartPageControll, Assembly-CSharp
         m_MethodName: StartGame
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: BetaDemo
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1031099430
@@ -2124,15 +2124,15 @@ RectTransform:
   m_GameObject: {fileID: 1412428174}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1862695672}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -84}
+  m_AnchoredPosition: {x: -0.000061035, y: -159}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1412428176
@@ -2532,7 +2532,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41586f9e258b00f43a804bef95a95898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPage: 
   SettingPage: {fileID: 653240758}
 --- !u!1001 &1900211365
 PrefabInstance:
