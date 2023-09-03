@@ -142,7 +142,8 @@ public class EnemiesAI : MonoBehaviour
             sControl.PlayAudio("敵方發射", SoundController.AudioType.SE, false);
             bullet = Instantiate(bulletPrefab, bulletPoint.transform.position, bulletPoint.transform.rotation);
             //bullet.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * bulletSpeed;
-            bullet.GetComponent<Rigidbody>().velocity = (player.transform.position - bulletPoint.transform.position) * bulletSpeed;
+            
+            bullet.GetComponent<Rigidbody>().velocity = new Vector3( (player.transform.position - bulletPoint.transform.position).x,0, (player.transform.position - bulletPoint.transform.position).z) * bulletSpeed;
             Destroy(bullet, destroyTime);
         }
     }

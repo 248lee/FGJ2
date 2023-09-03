@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using SupSystem;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -32,6 +33,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject HPIcon;
     [SerializeField] GameObject playerHPUI;
 
+    public string titleSceneName = "TitlePage";
+
     private void Start()
     {
 
@@ -49,6 +52,10 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)) // Mosue LB
             Fire();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            SwitchScene(titleSceneName);
+
     }
 
     private void FixedUpdate()
@@ -112,5 +119,10 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(HPIcon, playerHPUI.transform);
         }
+    }
+
+    public void SwitchScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }
