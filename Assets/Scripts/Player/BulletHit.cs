@@ -46,7 +46,7 @@ public class BulletHit : MonoBehaviour
                 int changingWinCondtion = Random.Range(0, 21);
                 if (changingWinCondtion < 1) // 10% to change
                 {
-                    GameObject.FindWithTag("Processor").GetComponent<Bomb>().Bombed();
+                  FindObjectOfType<Bomb>().Bombed();
                 }
             }
         }
