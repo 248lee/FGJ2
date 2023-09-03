@@ -12,7 +12,7 @@ public class PlayerSkillManager : MonoBehaviour
     public float skillDuration = 8f;
     private int[] skillSlots = new int[2];
     private Coroutine[] skillCoroutines = new Coroutine[2];
-    private Skill[] skillDataset = new Skill[7];
+    private Skill[] skillDataset = new Skill[8];
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +28,7 @@ public class PlayerSkillManager : MonoBehaviour
         skillDataset[4] = GetComponent<Skill4_SpeedUp>();
         skillDataset[5] = GetComponent<Skill5_Pinged>();
         skillDataset[6] = GetComponent<Skill6_ReverseDamage>();
+        skillDataset[7] = GetComponent<Skill7_Absorb>();
     }
 
     // Update is called once per frame
@@ -114,7 +115,7 @@ public class PlayerSkillManager : MonoBehaviour
             waitSeconds += 0.05f;
             yield return new WaitForSeconds(waitSeconds);
         }
-        int resultSkill = Random.Range(5, skillDataset.Length);
+        int resultSkill = Random.Range(6, skillDataset.Length);
         while (true) // Check whether skill0 and skill1 has the same skill No. If same, redraw.
         {
             bool isSkillConflict = false;
@@ -128,7 +129,7 @@ public class PlayerSkillManager : MonoBehaviour
             }
             if (isSkillConflict)
             {
-                resultSkill = Random.Range(5, skillDataset.Length);
+                resultSkill = Random.Range(6, skillDataset.Length);
             }
             else
             {

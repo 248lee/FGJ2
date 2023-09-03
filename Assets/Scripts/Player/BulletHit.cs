@@ -38,6 +38,7 @@ public class BulletHit : MonoBehaviour
                 //Destroy(gameObject);
                 gameObject.SetActive(false); // destroy in PlayerController
                 other.gameObject.transform.root.GetComponent<PlayerController>().DropHP(1);
+                other.gameObject.transform.root.GetComponent<Skill7_Absorb>().SetHitPlayerSignal();
             }
         }
     }

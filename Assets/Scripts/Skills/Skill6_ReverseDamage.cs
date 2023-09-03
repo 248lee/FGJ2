@@ -20,7 +20,6 @@ public class Skill6_ReverseDamage : Skill
         {
             if (hitEnemySignal)
             {
-                print("Damage");
                 GetComponent<PlayerController>().DropHP(1);
                 this.hitEnemySignal = false;
             }
