@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.VisualScripting;
+using SupSystem;
 
 public class EnemiesAI : MonoBehaviour
 {
@@ -32,11 +33,14 @@ public class EnemiesAI : MonoBehaviour
     public float bulletSpeed = 5f;
     public float destroyTime = 1f;
 
+    private SoundController sControl;
+
 
     private void Awake()
     {
 
         player = GameObject.Find("Tank").transform;
+        sControl = GameObject.FindGameObjectWithTag("Audio").GetComponent<SoundController>();
 
     }
 
@@ -135,6 +139,7 @@ public class EnemiesAI : MonoBehaviour
         GameObject bullet;
         if (bulletPoint != null)
         {
+            sControl.PlayAudio("敵方發射", SoundController.AudioType.SE, false);
             bullet = Instantiate(bulletPrefab, bulletPoint.transform.position, bulletPoint.transform.rotation);
             //bullet.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * bulletSpeed;
             bullet.GetComponent<Rigidbody>().velocity = (player.transform.position - bulletPoint.transform.position) * bulletSpeed;
