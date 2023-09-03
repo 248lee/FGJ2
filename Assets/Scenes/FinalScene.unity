@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winSwitch: 0
-  winTime: 10
+  winTime: 60
   winConditionText: {fileID: 1838350777}
   winConditionBGImage: {fileID: 1532775679}
   resultUI: {fileID: 1121957335}
