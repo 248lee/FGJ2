@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Skill2 : Skill
+public class Skill2_AddHP : Skill
 {
     public float skill2_AddHpPeriod = 0.7f;
     private bool isSkill2Adding = false;

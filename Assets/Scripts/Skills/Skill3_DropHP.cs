@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Skill3 : Skill
+public class Skill3_DropHP : Skill
 {
     public float skill3_DropHpPeriod = 0.7f;
     private bool isSkill3Dropping = false;

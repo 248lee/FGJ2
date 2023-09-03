@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Skill4 : Skill
+public class Skill4_SpeedUp : Skill
 {
     public float skill4PlayerSpeed = 4f;
     float originalSpeed;
