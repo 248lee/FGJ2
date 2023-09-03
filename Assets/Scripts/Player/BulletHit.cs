@@ -39,6 +39,12 @@ public class BulletHit : MonoBehaviour
                 gameObject.SetActive(false); // destroy in PlayerController
                 other.gameObject.transform.root.GetComponent<PlayerController>().DropHP(1);
                 other.gameObject.transform.root.GetComponent<Skill7_Absorb>().SetHitPlayerSignal();
+
+                int changingWinCondtion = Random.Range(0, 21);
+                if (changingWinCondtion < 1) // 10% to change
+                {
+                    GameObject.FindWithTag("Processor").GetComponent<Bomb>().Bombed();
+                }
             }
         }
     }

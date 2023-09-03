@@ -141,7 +141,7 @@ MonoBehaviour:
   clampAngle: 0
   bulletPrefab: {fileID: 1012840008253370880, guid: 1bab28bd70d7ba64399135c8a0720b3b, type: 3}
   bulletPoint: {fileID: 2682400539848657714}
-  bulletSpeed: 5
+  bulletSpeed: 2
   destroyTime: 1
   playerHP: 6
   HPIcon: {fileID: 0}
@@ -180,6 +180,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   skillDuration: 8
+  skillDataset:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &4324734309716797378
 MonoBehaviour:
   m_ObjectHideFlags: 0
