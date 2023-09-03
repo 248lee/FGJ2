@@ -26,19 +26,35 @@ public class RandomSpawner : MonoBehaviour
 
     void Update()
     {
-        if (Timers.IsTimerFinished("SpawnTimer" + cubePrefab.name))
+        Debug.Log("Enemies Num = " + enemiesNum);
+        //Timers.IsTimerFinished("SpawnTimer" + cubePrefab.name) && 
+        if (waveOver)
         {
+            Debug.Log("Wave " + wave);
             waveOver = false;
-            for (int i = 0; i < wave * numSet; i++)
+            enemiesNum = wave * numSet;
+            for (int i = 0; i < enemiesNum; i++)
             {
-
+                Debug.Log(cubePrefab);
                 Vector3 randomSpawnPosition = new Vector3(Random.Range(rangeX1, rangeX2), rangeY, Random.Range(rangeZ1, rangeZ2));
                 Instantiate(cubePrefab, randomSpawnPosition, Quaternion.identity);
-                enemiesNum++;
-
 
             }
             Timers.SetTimer("SpawnTimer" + cubePrefab.name, spawnPerSecs);
+            wave++;
+        }
+
+    }
+
+    public void Damaged()
+    {
+
+        enemiesNum--;
+        Debug.Log("Enemies left " + enemiesNum);
+        if (enemiesNum == 0)
+        {
+            waveOver = true;
+            Debug.Log("WaveOver");
         }
 
     }

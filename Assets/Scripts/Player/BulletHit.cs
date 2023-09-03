@@ -9,11 +9,13 @@ public class BulletHit : MonoBehaviour
     public GameObject enemyBombVFX;
     public bool isEnemy;
     private SoundController sControl;
+    public RandomSpawner randomSpawner;
 
     // Start is called before the first frame update
     void Start()
     {
         sControl = GameObject.FindGameObjectWithTag("Audio").GetComponent<SoundController>();
+        randomSpawner = GameObject.FindGameObjectWithTag("Processor").GetComponent<RandomSpawner>();
     }
 
     // Update is called once per frame
@@ -29,7 +31,7 @@ public class BulletHit : MonoBehaviour
             if (other.gameObject.transform.root.CompareTag(targetTag[0])) // if players bullet hits enemies
             {
                 sControl.PlayAudio("摧毀敵方", SoundController.AudioType.SE, false);
-                //Destroy(gameObject);
+                randomSpawner.Damaged();
                 GameObject vfx = Instantiate(enemyBombVFX, transform.position, Quaternion.identity);
                 gameObject.SetActive(false); // destroy in PlayerController
                 GameObject.FindWithTag("Player").GetComponent<Skill6_ReverseDamage>().SetHitEnemySignal();
