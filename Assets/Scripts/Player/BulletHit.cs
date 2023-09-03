@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletHit : MonoBehaviour
 {
     List<string> targetTag = new List<string>(){"Enemy", "Player"};
+    public GameObject enemyBombVFX;
     public bool isEnemy;
 
     // Start is called before the first frame update
@@ -26,9 +27,11 @@ public class BulletHit : MonoBehaviour
             if (other.gameObject.transform.root.CompareTag(targetTag[0])) // if players bullet hits enemies
             {
                 //Destroy(gameObject);
+                GameObject vfx = Instantiate(enemyBombVFX, transform.position, Quaternion.identity);
                 gameObject.SetActive(false); // destroy in PlayerController
                 GameObject.FindWithTag("Player").GetComponent<Skill6_ReverseDamage>().SetHitEnemySignal();
                 Destroy(other.gameObject);
+                Destroy(vfx, 4f);
             }
         }
         else
