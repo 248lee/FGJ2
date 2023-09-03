@@ -44,22 +44,24 @@ public class PlayerController : MonoBehaviour
         cameraRotX = rot.x;
         Cursor.lockState = CursorLockMode.Locked;
 
-
         AddHP(0);
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Mosue LB
-            Fire();
-
         if (Input.GetKeyDown(KeyCode.Escape))
             SwitchScene(titleSceneName);
 
+        if (GameObject.FindWithTag("Processor").GetComponent<Bomb>().isEnded) return;
+
+        if (Input.GetMouseButtonDown(0)) // Mosue LB
+            Fire();
     }
 
     private void FixedUpdate()
     {
+        if (GameObject.FindWithTag("Processor").GetComponent<Bomb>().isEnded) return;
+        
         Move();
         LookAt();
     }

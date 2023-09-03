@@ -8,6 +8,9 @@ TagManager:
   - bullets
   - Processor
   - Audio
+  - FailedUI
+  - SuccessedUI
+  - UI_BG
   layers:
   - Default
   - TransparentFX
