@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+
         Vector3 rot = transform.localRotation.eulerAngles;
         cameraRotY = rot.y;
         cameraRotX = rot.x;
@@ -62,7 +63,7 @@ public class PlayerController : MonoBehaviour
 
         GetComponent<Rigidbody>().velocity = distance;
     }
-   
+
     private void LookAt()
     {
         cameraRotY += Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
@@ -91,10 +92,10 @@ public class PlayerController : MonoBehaviour
     public void DropHP(int droppedHP)
     {
         playerHP -= droppedHP;
-        for (int i=playerHPUI.transform.childCount; i > playerHP; i--)
+        for (int i = playerHPUI.transform.childCount; i > playerHP; i--)
         {
             //Debug.Log("playerHPUI" + playerHPUI.transform.childCount);
-            if (i-1 >= 0) Destroy(playerHPUI.transform.GetChild(i-1).gameObject);
+            if (i - 1 >= 0) Destroy(playerHPUI.transform.GetChild(i - 1).gameObject);
         }
     }
     public void AddHP(int addedHP)
