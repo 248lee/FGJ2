@@ -12,7 +12,7 @@ public class PlayerSkillManager : MonoBehaviour
     public float skillDuration = 8f;
     private int[] skillSlots = new int[2];
     private Coroutine[] skillCoroutines = new Coroutine[2];
-    public Skill[] skillDataset = new Skill[6];
+    public Skill[] skillDataset = new Skill[8];
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +27,8 @@ public class PlayerSkillManager : MonoBehaviour
         skillDataset[3] = GetComponent<Skill3_DropHP>();
         skillDataset[4] = GetComponent<Skill4_SpeedUp>();
         skillDataset[5] = GetComponent<Skill5_Pinged>();
+        skillDataset[6] = GetComponent<Skill6_ReverseDamage>();
+        skillDataset[7] = GetComponent<Skill7_Absorb>();
     }
 
     // Update is called once per frame
