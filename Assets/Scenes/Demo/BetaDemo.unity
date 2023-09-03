@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -135,10 +135,10 @@ GameObject:
   - component: {fileID: 79765471}
   - component: {fileID: 79765470}
   - component: {fileID: 79765469}
-  - component: {fileID: 79765474}
   - component: {fileID: 79765473}
   - component: {fileID: 79765475}
   - component: {fileID: 79765476}
+  - component: {fileID: 79765477}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -241,24 +241,7 @@ MonoBehaviour:
   player: {fileID: 186972996}
   waveOver: 1
   numSet: 5
-  spawnPerSecs: 5
---- !u!114 &79765474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 79765468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76b865a9d383e4010bddc82924771a81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cubePrefab: {fileID: 2550637144319894959, guid: 9085c4c9ac504eb4da0ea8a7d6e846f5, type: 3}
-  player: {fileID: 186972996}
-  waveOver: 1
-  numSet: 5
-  spawnPerSecs: 5
+  spawnPerSecs: 2
 --- !u!114 &79765475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,6 +285,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winSwitch: 0
   winTime: 10
+--- !u!114 &79765477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79765468}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76b865a9d383e4010bddc82924771a81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubePrefab: {fileID: 2550637144319894959, guid: 9085c4c9ac504eb4da0ea8a7d6e846f5, type: 3}
+  player: {fileID: 186972996}
+  waveOver: 1
+  numSet: 0
+  spawnPerSecs: 1
 --- !u!1 &186972996 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4064438321608431536, guid: a131b92566a91f44699b41da4702eb72, type: 3}
@@ -748,7 +748,7 @@ PrefabInstance:
       objectReference: {fileID: 1434141454}
     - target: {fileID: 4064438321608431540, guid: a131b92566a91f44699b41da4702eb72, type: 3}
       propertyPath: playerSpeed
-      value: 5
+      value: 280
       objectReference: {fileID: 0}
     - target: {fileID: 4064438321608431541, guid: a131b92566a91f44699b41da4702eb72, type: 3}
       propertyPath: m_RootOrder
