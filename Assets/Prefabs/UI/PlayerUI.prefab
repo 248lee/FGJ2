@@ -186,6 +186,7 @@ GameObject:
   - component: {fileID: 4657995385122578268}
   - component: {fileID: 4657995385122578270}
   - component: {fileID: 4657995385122578269}
+  - component: {fileID: 1681815930444398126}
   m_Layer: 5
   m_Name: Skill1Icon
   m_TagString: Untagged
@@ -251,6 +252,26 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &1681815930444398126
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4657995385122578211}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2fa74cf5a5a68a742b95ed398dfd6e36, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &4657995385128786056
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,6 +553,7 @@ GameObject:
   - component: {fileID: 4657995386358795572}
   - component: {fileID: 4657995386358795574}
   - component: {fileID: 4657995386358795573}
+  - component: {fileID: 7227534440873468536}
   m_Layer: 5
   m_Name: Skill2Icon
   m_TagString: Untagged
@@ -597,6 +619,26 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &7227534440873468536
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4657995386358795579}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 91fe1179cac2b514999d0789a4c7379a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &5287575208136330202
 GameObject:
   m_ObjectHideFlags: 0
