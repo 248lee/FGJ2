@@ -11,9 +11,9 @@ public class StartPageControll : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
     }
-    public void StartGame(string startPage)
+    public void StartGame(string scene)
     {
-        SceneManager.LoadScene(startPage);
+        SceneManager.LoadScene(scene);
     }
     public void QuitGame()
     {

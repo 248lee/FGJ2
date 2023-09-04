@@ -30,13 +30,13 @@ public class Bomb : MonoBehaviour
     {
         if (state == true)
         {
-            winConditionText.text = "活下去！\n再稱" + (int)(this.winTime * (1 - Timers.GetTimerPrgress("WinTimer")));
-            winConditionBGImage.color = Color.green;
+            winConditionText.text = "活下去！\n再撐" + (int)(this.winTime * (1 - Timers.GetTimerPrgress("WinTimer"))) + "秒即可勝利！";
+            winConditionBGImage.color = new Color(0 , 255, 0, 0.5f);
         }
         else
         {
-            winConditionText.text = "自殺吧！\n努力在" + (int)(this.winTime * (1 - Timers.GetTimerPrgress("WinTimer"))) + "秒內死吧";
-            winConditionBGImage.color = Color.red;
+            winConditionText.text = "自殺吧！\n在" + (int)(this.winTime * (1 - Timers.GetTimerPrgress("WinTimer"))) + "秒內死亡即可勝利！";
+            winConditionBGImage.color = new Color(255, 0, 0, 0.5f);
         }
         if (isEnded) return;
 

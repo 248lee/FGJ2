@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 7581041189301286830}
   - component: {fileID: 186973010}
   - component: {fileID: 4490097640169487907}
+  - component: {fileID: 3724194289934169589}
   m_Layer: 7
   m_Name: Character
   m_TagString: Player
@@ -99,6 +100,7 @@ MonoBehaviour:
   skillIcons:
   - {fileID: 0}
   - {fileID: 0}
+  skillTexts: []
   skillDuration: 8
   skillDataset:
   - {fileID: 0}
@@ -268,6 +270,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floatingHeight: 9
+--- !u!114 &3724194289934169589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4064438321608431536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504db47eacd973a4287ff781950e1cd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4064438322964243834
 GameObject:
   m_ObjectHideFlags: 0

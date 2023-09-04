@@ -17,7 +17,7 @@ public class SkillsDebug : MonoBehaviour
     {
         if (skillManager)
         {
-            for (int i = 1; i <= skillManager.skillDataset.Length; i++)
+            for (int i = 1; i < skillManager.skillDataset.Length; i++)
             {
                 if (Input.GetKeyDown(KeyCode.Alpha0 + i))
                 {

@@ -146,6 +146,11 @@ public class PlayerController : MonoBehaviour
 
     public void SwitchScene(string sceneName)
     {
+        GameObject[] obj = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject go in obj)
+            Destroy(go); 
+        // destroy all enemy before switch scene, because it has a bug.
+
         SceneManager.LoadScene(sceneName);
     }
 }

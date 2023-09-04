@@ -55,5 +55,10 @@ public class BulletHit : MonoBehaviour
                 }
             }
         }
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("Wall")) // if any bullet hits wall
+        {
+            Destroy(gameObject);
+        }
     }
 }
