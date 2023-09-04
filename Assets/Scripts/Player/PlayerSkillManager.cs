@@ -14,7 +14,7 @@ public class PlayerSkillManager : MonoBehaviour
     public float skillDuration = 8f;
     private int[] skillSlots = new int[2];
     private Coroutine[] skillCoroutines = new Coroutine[2];
-    private string[] skillDescriptions = { "", "穿牆", "持續加血", "持續扣血", "加速", "爆Ping", "反嗜", "吸血", "漂浮" };
+    private string[] skillDescriptions = { "", "穿牆", "持續加血", "持續扣血", "加速", "爆Ping", "反噬", "吸血", "漂浮" };
     public Skill[] skillDataset = new Skill[9];
 
     // Start is called before the first frame update
