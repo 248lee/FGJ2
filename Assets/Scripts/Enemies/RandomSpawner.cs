@@ -10,11 +10,13 @@ public class RandomSpawner : MonoBehaviour
     public GameObject player;
     private float rangeX1, rangeX2, rangeY, rangeZ1, rangeZ2;
 
-    public static int wave = 1;
-    public static int enemiesNum = 0;
+    public int wave = 1;
+    public int enemiesNum = 0;
     public bool waveOver = true;
     public int numSet;
     public float spawnPerSecs = 5f;
+
+    private int totalNum_Debug = 0;
 
     private void Start()
     {
@@ -26,8 +28,7 @@ public class RandomSpawner : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Enemies Num = " + enemiesNum);
-        //Timers.IsTimerFinished("SpawnTimer" + cubePrefab.name) && 
+        Debug.Log(cubePrefab.name + " Num = " + totalNum_Debug);
         if (waveOver)
         {
             Debug.Log("Wave " + wave);
@@ -35,15 +36,16 @@ public class RandomSpawner : MonoBehaviour
             enemiesNum = wave * numSet;
             for (int i = 0; i < enemiesNum; i++)
             {
-                Debug.Log(cubePrefab);
                 Vector3 randomSpawnPosition = new Vector3(Random.Range(rangeX1, rangeX2), rangeY, Random.Range(rangeZ1, rangeZ2));
                 Instantiate(cubePrefab, randomSpawnPosition, Quaternion.identity);
-
             }
-            Timers.SetTimer("SpawnTimer" + cubePrefab.name, spawnPerSecs);
-            wave++;
+            Timers.SetTimer("SpawnTimer", spawnPerSecs);
+            totalNum_Debug += enemiesNum;
+            //wave++;
         }
 
+        // spawn per each secs
+        if (Timers.IsTimerFinished("SpawnTimer")) waveOver = true;
     }
 
     public void Damaged()

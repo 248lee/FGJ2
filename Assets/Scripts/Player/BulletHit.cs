@@ -31,7 +31,7 @@ public class BulletHit : MonoBehaviour
             if (other.gameObject.transform.root.CompareTag(targetTag[0])) // if players bullet hits enemies
             {
                 sControl.PlayAudio("摧毀敵方", SoundController.AudioType.SE, false);
-                randomSpawner.Damaged();
+                //randomSpawner.Damaged();
                 GameObject vfx = Instantiate(enemyBombVFX, transform.position, Quaternion.identity);
                 gameObject.SetActive(false); // destroy in PlayerController
                 GameObject.Find("Character").GetComponent<Skill6_ReverseDamage>().SetHitEnemySignal();

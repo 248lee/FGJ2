@@ -239,6 +239,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cubePrefab: {fileID: 6822301918986546573, guid: 6b03da8e98014cb4ca395ebc995bfe86, type: 3}
   player: {fileID: 186972996}
+  wave: 1
+  enemiesNum: 0
   waveOver: 1
   numSet: 10
   spawnPerSecs: 5
@@ -256,9 +258,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cubePrefab: {fileID: 2550637144319894959, guid: 9085c4c9ac504eb4da0ea8a7d6e846f5, type: 3}
   player: {fileID: 186972996}
+  wave: 1
+  enemiesNum: 0
   waveOver: 1
   numSet: 5
-  spawnPerSecs: 8
+  spawnPerSecs: 7
 --- !u!114 &79765475
 MonoBehaviour:
   m_ObjectHideFlags: 0
