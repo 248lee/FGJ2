@@ -5941,6 +5941,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3724194289934169589, guid: a131b92566a91f44699b41da4702eb72, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4064438321608431536, guid: a131b92566a91f44699b41da4702eb72, type: 3}
       propertyPath: m_Name
       value: Character
